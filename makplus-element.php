@@ -51,11 +51,11 @@ class makplus {
 	}
 
 	public function enqueue_scripts() {
-		wp_register_style( 'makplus-style', plugin_dir_url( __FILE__ ) . 'public/assets/css/style.css' );
-		wp_register_script( 'makplus-main-js', plugin_dir_url( __FILE__ ) . 'public/assets/js/main.js' );
+		wp_register_style( 'makplus-plugin-style', plugin_dir_url( __FILE__ ) . 'public/assets/css/style.css' );
+		wp_register_script( 'makplus-plugin-main-js', plugin_dir_url( __FILE__ ) . 'public/assets/js/main.js' );
 
-		wp_enqueue_style( 'makplus-style' );
-		wp_enqueue_script( 'makplus-main-js' );
+		wp_enqueue_style( 'makplus-plugin-style' );
+		wp_enqueue_script( 'makplus-plugin-main-js' );
 	}
 
 	public function admin_scripts() {
