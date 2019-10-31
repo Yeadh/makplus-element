@@ -46,33 +46,30 @@ if( !class_exists('makplus_Author') ){
 		$title = apply_filters( 'widget_title', $title, $instance, $this->id_base );
 
 
-			echo $args['before_widget']; ?>
-				
-			<div class="sidebar-author text-center">
-			    <div class="sidebar-title mb-25">
-			        <?php if ( $title ): 
-				    echo $args['before_title'];  
-					echo esc_attr( $title );  
-				 	echo $args['after_title']; 
-					endif;  ?>
-			    </div>
-			    <div class="sidebar-author-info">
-			    	<?php if ($profile_image): ?>
-			    	<div class="sidebar-author-img mb-20">
-			            <img src="<?php echo esc_url( $profile_image ) ?>" alt="<?php echo esc_attr( $title ); ?>">
-			        </div>
-			    	<?php endif ?>			        
-			        <p><?php echo esc_html( $short_description ) ?></p>
-			        <ul>
-			            <li><a href="<?php echo esc_url( $facebook ) ?>"><i class="fa fa-facebook-f"></i></a></li>
-			            <li><a href="<?php echo esc_url( $twitter ) ?>"><i class="fa fa-twitter"></i></a></li>
-			            <li><a href="<?php echo esc_url( $pinterest ) ?>"><i class="fa fa-pinterest-p"></i></a></li>
-			            <li><a href="<?php echo esc_url( $linkedin ) ?>"><i class="fa fa-linkedin"></i></a></li>
+			echo $args['before_widget'];
+			if ( $title ): 
+		    echo $args['before_title'];  
+			echo esc_attr( $title );  
+		 	echo $args['after_title']; 
+			endif;  ?>
+			
+            <?php if ($profile_image): ?>
+		    	<div class="sidebar-about-thumb mb-30 text-center">
+		            <img src="<?php echo esc_url( $profile_image ) ?>" alt="<?php echo esc_attr( $title ); ?>">
+		        </div>
+		    <?php endif ?>
+            <div class="sidebar-about-content text-center">
+                <p><?php echo esc_html( $short_description ) ?></p>
+                <div class="sidebar-about-social">
+                    <ul>
+			            <li><a href="<?php echo esc_url( $facebook ) ?>"><i class="fab fa-facebook-f"></i></a></li>
+			            <li><a href="<?php echo esc_url( $twitter ) ?>"><i class="fab fa-twitter"></i></a></li>
+			            <li><a href="<?php echo esc_url( $pinterest ) ?>"><i class="fab fa-pinterest-p"></i></a></li>
+			            <li><a href="<?php echo esc_url( $linkedin ) ?>"><i class="fab fa-linkedin-in"></i></a></li>
 			        </ul>
-			    </div>
-			</div>
-
-
+                </div>
+            </div>
+            
 			<?php echo $args['after_widget']; ?>
 			
 			<?php wp_reset_postdata();

@@ -64,7 +64,6 @@ class makplus {
 	}
 
 	private function load_dependencies() {
-		require_once plugin_dir_path( __FILE__ ) . 'includes/custom-posts.php';
 		require_once plugin_dir_path( __FILE__ ) . 'includes/elementor/elementor.php';
 		require_once plugin_dir_path( __FILE__ ) . 'includes/recent-post.php';
 		require_once plugin_dir_path( __FILE__ ) . 'includes/author-widget.php';

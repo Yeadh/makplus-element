@@ -60,9 +60,13 @@ if( !class_exists('makplus_Recent_Post') ){
                 <ul class="sidebar-rc-post">
 					<?php while($posts->have_posts()) : $posts->the_post();  ?>
                     <li>
-                        <div class="rc-post-thumb">
-                            <a href="<?php the_permalink() ?>"><?php the_post_thumbnail( 'makplus-95x84' ); ?></a>
+                    	<?php if (has_post_thumbnail( )): ?>
+                    	<div class="rc-post-thumb">
+                            <a href="<?php the_permalink() ?>">
+                            	<?php the_post_thumbnail( 'makplus-95x84' ); ?>
+                            </a>
                         </div>
+                    	<?php endif ?>
                         <div class="rc-post-content">
                             <h5><a href="<?php the_permalink() ?>"><?php the_title() ?></a></h5>
                             <ul class="rc-post-meta">
@@ -73,6 +77,7 @@ if( !class_exists('makplus_Recent_Post') ){
                     </li>
 					<?php endwhile; ?>
                 </ul>
+
 			<?php echo $args['after_widget']; ?>
 			
 			<?php wp_reset_postdata();
@@ -108,8 +113,7 @@ if( !class_exists('makplus_Recent_Post') ){
 	?>
 		<p><label for="<?php echo esc_attr($this->get_field_id( 'title' )); ?>"><?php echo esc_html__( 'Title:','makplus' ); ?></label>
 		<input class="widefat" id="<?php echo esc_attr($this->get_field_id( 'title' )); ?>" name="<?php echo esc_attr($this->get_field_name( 'title' )); ?>" type="text" value="<?php echo esc_attr($title); ?>" /></p>
-		
-		
+
 		<p>
 			<label for="<?php echo esc_attr($this->get_field_id( 'show_item' )); ?>"><?php echo esc_html__( 'No. of Item of posts to show:','makplus' ); ?></label>
 			<input class="tiny-text" id="<?php echo esc_attr(esc_attr($this->get_field_id( 'show_item' ))); ?>" name="<?php echo esc_attr($this->get_field_name( 'show_item' )); ?>" type="number" step="1" min="1" value="<?php echo esc_attr($show_item); ?>" size="3" />
