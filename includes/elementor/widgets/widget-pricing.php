@@ -33,19 +33,6 @@ class makplus_Widget_Pricing extends Widget_Base {
       );
 
       $this->add_control(
-         'style',
-         [
-            'label' => __( 'Style', 'makplus' ),
-            'type' => \Elementor\Controls_Manager::SELECT,
-            'default' => 'style1',
-            'options' => [
-               'style1' => __( 'Style 1', 'makplus' ),
-               'style2' => __( 'Style 2', 'makplus' )
-            ],
-         ]
-      );
-
-      $this->add_control(
          'title',
          [
             'label' => __( 'title', 'makplus' ),
@@ -58,8 +45,7 @@ class makplus_Widget_Pricing extends Widget_Base {
          'desc',
          [
             'label' => __( 'Description', 'makplus' ),
-            'type' => \Elementor\Controls_Manager::TEXTAREA,
-            'condition' => ['style' => 'style2']
+            'type' => \Elementor\Controls_Manager::TEXTAREA
          ]
       );
 
@@ -139,7 +125,7 @@ class makplus_Widget_Pricing extends Widget_Base {
          [
             'label' => __( 'button text', 'makplus' ),
             'type' => \Elementor\Controls_Manager::TEXT,
-            'default' => 'subscribe',
+            'default' => 'Buy Now',
          ]
       );
 
@@ -174,105 +160,19 @@ class makplus_Widget_Pricing extends Widget_Base {
       $settings = $this->get_settings_for_display(); ?>
 
 
-      <div class="element-wrapper pt-120 pb-90">
-         <div class="container">
-             <div class="pricing-wrap pl-80 pr-80">
-                 <div class="row">
-                     <div class="col-lg-4 col-md-6">
-                         <div class="single-pricing text-center mb-30">
-                             <div class="pricing-head mb-30">
-                                 <div class="pricing-icon mb-15">
-                                     <img src="img/icon/pricing_icon01.png" alt="img">
-                                 </div>
-                                 <h5>Basic Limited</h5>
-                                 <span>Free plan</span>
-                                 <p>Subscribe Best Plans</p>
-                                 <div class="price-count">
-                                     <h4>Free License</h4>
-                                 </div>
-                             </div>
-                             <div class="pricing-list mb-30">
-                                 <ul>
-                                     <li>Choose any single theme</li>
-                                     <li>5 WordPress Theme</li>
-                                     <li>1 year to support & updates</li>
-                                     <li>20% Future Purchases</li>
-                                 </ul>
-                             </div>
-                             <div class="pricing-btn">
-                                 <a href="#" class="btn">Buy Now<i class="fas fa-shopping-cart"></i></a>
-                             </div>
-                         </div>
-                     </div>
-                     <div class="col-lg-4 col-md-6">
-                         <div class="single-pricing active text-center mb-30">
-                             <div class="pricing-head mb-30">
-                                 <div class="pricing-icon mb-15">
-                                     <img src="img/icon/pricing_icon02.png" alt="img">
-                                 </div>
-                                 <h5>Business Limited</h5>
-                                 <span>monthly</span>
-                                 <p>Subscribe Best Plans</p>
-                                 <div class="price-count">
-                                     <h4>Yearly License <span>- $119</span></h4>
-                                 </div>
-                             </div>
-                             <div class="pricing-list mb-30">
-                                 <ul>
-                                     <li>Choose any single theme</li>
-                                     <li>5 WordPress Theme</li>
-                                     <li>1 year to support & updates</li>
-                                     <li>20% Future Purchases</li>
-                                 </ul>
-                             </div>
-                             <div class="pricing-btn">
-                                 <a href="#" class="btn">Buy Now<i class="fas fa-shopping-cart"></i></a>
-                             </div>
-                         </div>
-                     </div>
-                     <div class="col-lg-4 col-md-6">
-                         <div class="single-pricing text-center mb-30">
-                             <div class="pricing-head mb-30">
-                                 <div class="pricing-icon mb-15">
-                                     <img src="img/icon/pricing_icon03.png" alt="img">
-                                 </div>
-                                 <h5>Basic Limited</h5>
-                                 <span>Yearly plan</span>
-                                 <p>Subscribe Best Plans</p>
-                                 <div class="price-count">
-                                     <h4>Yearly License <span>- $219</span></h4>
-                                 </div>
-                             </div>
-                             <div class="pricing-list mb-30">
-                                 <ul>
-                                     <li>Choose any single theme</li>
-                                     <li>5 WordPress Theme</li>
-                                     <li>1 year to support & updates</li>
-                                     <li>20% Future Purchases</li>
-                                 </ul>
-                             </div>
-                             <div class="pricing-btn">
-                                 <a href="#" class="btn">Buy Now<i class="fas fa-shopping-cart"></i></a>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
+      <div class="single-pricing text-center <?php if ( 'on' == $settings['recommended'] ){ echo"active"; }?>">
+         <div class="pricing-head mb-30">
+             <div class="pricing-icon mb-15">
+                 <img src="<?php echo esc_url( $settings['icon']['url'] ); ?>" alt="<?php echo esc_attr( $settings['title'] ); ?>">
+             </div>
+             <h5><?php echo esc_html( $settings['title'] ); ?></h5>
+             <span><?php echo esc_html( $settings['package'] ); ?></span>
+             <p>Subscribe Best Plans</p>
+             <div class="price-count">
+                 <h4><?php echo esc_html( $settings['price'] ); ?></h4>
              </div>
          </div>
-      </div>
-
-      
-      <?php if ( $settings['style'] == 'style1' ){ ?>
-
-      <div class="single-pricing <?php if ( 'on' == $settings['recommended'] ){ echo"active"; }?> text-center">
-         <div class="pricing-head mb-30">
-             <span><?php echo esc_html( $settings['title'] ); ?></span>
-             <h2>$<?php echo esc_html( $settings['price'] ); ?><span>/<?php echo esc_html( $settings['package'] ); ?></span></h2>
-         </div>
-         <div class="pricing-icon mb-35">
-             <img src="<?php echo esc_url( $settings['icon']['url'] ); ?>" alt="<?php echo esc_attr( $settings['title'] ); ?>">
-         </div>
-         <div class="pricing-list mb-35">
+         <div class="pricing-list mb-30">
              <ul>
                <?php foreach( $settings['feature_list'] as $index => $feature ) { ?>
                   <li><?php echo $feature['feature'] ?></li>
@@ -280,33 +180,11 @@ class makplus_Widget_Pricing extends Widget_Base {
              </ul>
          </div>
          <div class="pricing-btn">
-            <a href="<?php echo esc_attr( $settings['btn_url'] ) ?>" class="btn"><?php echo esc_html( $settings['btn_text'] ) ?></a>
-         </div>
-      </div>
-
-      <?php } elseif( $settings['style'] == 'style2' ){ ?>
-
-      <div class="single-pricing s-single-pricing active text-center mb-30">
-         <div class="pricing-head mb-35">
-             <span><?php echo esc_html( $settings['title'] ); ?></span>
-             <p><?php echo esc_html( $settings['desc'] ); ?></p>
-             <h2  class="price-count">$<?php echo esc_html( $settings['price'] ); ?><span>/<?php echo esc_html( $settings['package'] ); ?></span></h2>
-         </div>
-         <div class="pricing-list mb-35">
-            <ul>
-               <?php foreach( $settings['feature_list'] as $index => $feature ) { ?>
-                  <li><?php echo $feature['feature'] ?></li>
-               <?php } ?>
-             </ul>
-         </div>
-         <div class="s-pricing-btn">
-            <a href="<?php echo esc_attr( $settings['btn_url'] ) ?>" class="btn"><?php echo esc_html( $settings['btn_text'] ) ?></a>
+             <a href="<?php echo esc_attr( $settings['btn_url'] ) ?>" class="btn"><?php echo esc_html( $settings['btn_text'] ) ?><i class="fas fa-shopping-cart"></i></a>
          </div>
       </div>
 
    <?php }
-
-   }
  
 }
 
