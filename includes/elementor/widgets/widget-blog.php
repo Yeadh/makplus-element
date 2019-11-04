@@ -65,30 +65,35 @@ class makplus_Widget_Blog extends Widget_Base {
                /* Start the Loop */
                while ( $blog->have_posts() ) : $blog->the_post();
                ?>
-              <div class="col-lg-4 col-md-6">
-                <div class="single-blog-post mb-30">
-                    <div class="b-post-thumb">
-                      <a href="<?php the_permalink() ?>"><img src="<?php echo get_the_post_thumbnail_url( get_the_ID(),'deimos-404x302'); ?>" alt="<?php the_title() ?>"></a>
-                      <div class="category">
-                        <?php 
-                        $categories = get_the_category();
-                        if ( ! empty( $categories ) ) {
-                            echo '<a href="' . esc_url( get_category_link( $categories[0]->term_id ) ) . '">' . esc_html( $categories[0]->name ) . '</a>';
-                        } ?>
+               <div class="col-lg-4 col-md-6">
+                  <div class="single-blog-post mb-30">
+                      <div class="blog-thumb">
+                          <a href="<?php the_permalink() ?>"><img src="<?php echo get_the_post_thumbnail_url( get_the_ID(),'deimos-404x302'); ?>" alt="<?php the_title() ?>"></a>
                       </div>
-                    </div>
-                    <div class="blog-content">
-                      <ul class="list-inline">
-                        <li class="list-inline-item"><i class="fa fa-user"></i><a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php echo esc_html__( 'By','zaaple' ); ?> <?php the_author(); ?></a></li>
-                        <li class="list-inline-item"><i class="fa fa-calendar"></i><?php the_date(); ?></li>
-                      </ul>
-                      <h3><a href="<?php the_permalink() ?>"><?php the_title() ?></a></h3>
-                      <p><?php echo wp_trim_words( get_the_content(), 15, '.' ); ?></p>
-                      <a href="<?php the_permalink(); ?>"><?php echo esc_html__( 'Read More', 'makplus' ); ?> <i class="fa fa-long-arrow-right"></i></a>
-                    </div>
-                </div>
+                      <div class="blog-content">
+                          <div class="bc-top-wrap fix mb-25">
+                              <div class="b-post-date">
+                                  <h6>19</h6>
+                                  <span>Aug, 2019</span>
+                              </div>
+                              <div class="b-top-content fix">
+                                  <h5><a href="<?php the_permalink() ?>"><?php the_title() ?></a></h5>
+                                  <div class="blog-meta">
+                                      <ul>
+                                          <li>
+                                            <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><i class="far fa-user"></i><?php echo esc_html__( 'By','zaaple' ); ?> <?php the_author(); ?></a>
+                                          </li>
+                                          <li><i class="far fa-comments"></i>19</li>
+                                          <li><i class="far fa-heart"></i>457</li>
+                                      </ul>
+                                  </div>
+                              </div>
+                          </div>
+                          <p><?php echo wp_trim_words( get_the_content(), 15, '.' ); ?></p>
+                          <a href="<?php the_permalink(); ?>"><?php echo esc_html__( 'Read More', 'makplus' ); ?> <span>+</span></a>
+                      </div>
+                  </div>
               </div>
-
                <?php 
                endwhile; 
             wp_reset_postdata();
