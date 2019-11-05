@@ -65,6 +65,7 @@ class makplus_Widget_Testimonials extends Widget_Base {
          [
             'label' => __( 'Name', 'makplus' ),
             'type' => \Elementor\Controls_Manager::TEXT,
+            'default' => __( 'Emaley Mcculloch', 'makplus' ),
             
          ]
       );
@@ -73,7 +74,8 @@ class makplus_Widget_Testimonials extends Widget_Base {
          'designation',
          [
             'label' => __( 'Designation', 'makplus' ),
-            'type' => \Elementor\Controls_Manager::TEXT
+            'type' => \Elementor\Controls_Manager::TEXT,
+            'default' => __( 'Founder ceo', 'makplus' ),
          ]
       );
 
@@ -81,7 +83,8 @@ class makplus_Widget_Testimonials extends Widget_Base {
          'testimonial',
          [
             'label' => __( 'Testimonial', 'makplus' ),
-            'type' => \Elementor\Controls_Manager::TEXTAREA
+            'type' => \Elementor\Controls_Manager::TEXTAREA,
+            'default' => __( 'In promotion and of advertising testimonial show consiss of a person\'s written orsoken statement extollig the virtue', 'makplus' ),
          ]
       );
 
@@ -108,28 +111,38 @@ class makplus_Widget_Testimonials extends Widget_Base {
 
       <?php if ( $settings['style'] == 'style1' ){ ?>
 
-      <div class="row justify-content-center">
-        <div class="col-xl-8 col-lg-10">
-          <div class="testimonial-active">
+      <div class="container">
+          <div class="row testimonial-active">
             <?php foreach (  $settings['testimonial_list'] as $testimonial_single ): ?>
-              <div class="single-testimonial text-center">
-                  <div class="testimonial-icon mb-25">
-                      <img src="<?php echo get_template_directory_uri() ?>/images/quote.png" alt="quote">
-                  </div>
-                  <div class="testimonial-content">
-                      <h5><?php echo esc_html($testimonial_single['testimonial']); ?></h5>
-                      <div class="testi-avatar">
-                          <h6><?php echo esc_html($testimonial_single['name']); ?></h6>
-                          <span><?php echo esc_html($testimonial_single['designation']); ?></span>
+              <div class="col-xl-4">
+                  <div class="single-testimonial mb-20">
+                      <div class="testi-content text-center">
+                          <div class="testi-quote mb-25">
+                              <img src="<?php echo get_template_directory_uri() ?>/images/quote_icon.png" alt="img">
+                          </div>
+                          <p>“ <?php echo esc_html($testimonial_single['testimonial']); ?> ”</p>
+                      </div>
+                      <div class="testi-avatar d-flex align-items-center">
+                          <div class="t-avatar-img mr-15">
+                              <img src="<?php echo get_template_directory_uri() ?>/images/quote.png" alt="quote">
+                          </div>
+                          <div class="t-avatar-info">
+                              <h4><?php echo esc_html($testimonial_single['name']); ?></h4>
+                              <span><?php echo esc_html($testimonial_single['designation']); ?></span>
+                          </div>
                       </div>
                   </div>
               </div>
             <?php endforeach; ?>
           </div>
-        </div>
       </div>
+
       
       <?php } elseif( $settings['style'] == 'style2' ){ ?>
+
+        
+      
+      <?php } elseif( $settings['style'] == 'style3' ){ ?>
 
         
       <?php } ?>
