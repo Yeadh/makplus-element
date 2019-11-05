@@ -62,10 +62,10 @@ class makplus_Widget_Service extends Widget_Base {
          [
             'label' => __( 'Service Style', 'makplus' ),
             'type' => \Elementor\Controls_Manager::SELECT,
-            'default' => 'center',
+            'default' => 'style1',
             'options' => [
-               'center'  => __( 'Center Icon', 'makplus' ),
-               'left' => __( 'Left Icon', 'makplus' ),
+               'style1'  => __( 'Style 1', 'makplus' ),
+               'style2' => __( 'Style 2', 'makplus' ),
             ],
          ]
       );
@@ -78,37 +78,31 @@ class makplus_Widget_Service extends Widget_Base {
       // get our input from the widget settings.
        
       $settings = $this->get_settings_for_display();
+
+      if ( $settings['style1'] == 'style1' ){ ?>
+      <div class="single-services mb-50">
+          <div class="services-icon mb-30">
+              <?php echo wp_get_attachment_image( $settings['icon']['id'],'full'); ?>
+          </div>
+          <div class="services-content">
+              <h4>eCommerce Support</h4>
+              <h4><?php echo esc_html($settings['title']); ?></h4>
+               <p><?php echo esc_html($settings['text']); ?></p>
+              <a href="#" class="btn">Learn More<i class="fas fa-long-arrow-alt-right"></i></a>
+          </div>
+      </div>
+
+      <?php } elseif( $settings['style2'] == 'style2' ) { ?>
       
-      //Inline Editing
-      $this->add_inline_editing_attributes( 'icon', 'basic' );
-      $this->add_inline_editing_attributes( 'title', 'basic' );
-      $this->add_inline_editing_attributes( 'text', 'basic' );
-      $this->add_inline_editing_attributes( 'style', 'basic' );
-      ?>
-      <?php 
-      if ( $settings['style'] == 'center' ){ ?>
-
-      <div class="s-inner-features text-center mb-50">
-           <div class="ifeatures-icon mb-30">
-               <?php echo wp_get_attachment_image( $settings['icon']['id'],'full'); ?>
-           </div>
-           <div class="ifeatures-content">
-               <h4><?php echo esc_html($settings['title']); ?></h4>
-               <p><?php echo esc_html($settings['text']); ?></p>
-           </div>
-       </div>
-
-      <?php } elseif( $settings['style'] == 'left' ) { ?>
-
-      <div class="s-single-features">
-           <div class="s-features-icon">
-               <?php echo wp_get_attachment_image( $settings['icon']['id'],'full'); ?>
-           </div>
-           <div class="features-content">
-               <h3><?php echo esc_html($settings['title']); ?></h3>
-               <p><?php echo esc_html($settings['text']); ?></p>
-           </div>
-       </div>
+      <div class="single-customize-step">
+          <div class="customize-icon">
+              <?php echo wp_get_attachment_image( $settings['icon']['id'],'full'); ?>
+          </div>
+          <div class="customize-content">
+            <h4><?php echo esc_html($settings['title']); ?></h4>
+            <p><?php echo esc_html($settings['text']); ?></p>
+          </div>
+      </div>
 
       <?php } ?>
       
