@@ -1,6 +1,6 @@
 <?php 
 namespace Elementor;
- 
+
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 // service item
 class makplus_Widget_Service extends Widget_Base {
@@ -26,6 +26,19 @@ class makplus_Widget_Service extends Widget_Base {
          [
             'label' => esc_html__( 'Service Item', 'makplus' ),
             'type' => Controls_Manager::SECTION,
+         ]
+      );
+
+      $this->add_control(
+         'style',
+         [
+            'label' => __( 'Service Style', 'makplus' ),
+            'type' => \Elementor\Controls_Manager::SELECT,
+            'default' => 'style1',
+            'options' => [
+               'style1'  => __( 'Style 1', 'makplus' ),
+               'style2' => __( 'Style 2', 'makplus' ),
+            ],
          ]
       );
 
@@ -57,19 +70,6 @@ class makplus_Widget_Service extends Widget_Base {
          ]
       );
 
-      $this->add_control(
-         'style',
-         [
-            'label' => __( 'Service Style', 'makplus' ),
-            'type' => \Elementor\Controls_Manager::SELECT,
-            'default' => 'style1',
-            'options' => [
-               'style1'  => __( 'Style 1', 'makplus' ),
-               'style2' => __( 'Style 2', 'makplus' ),
-            ],
-         ]
-      );
-
       
       $this->end_controls_section();
    }
@@ -79,7 +79,7 @@ class makplus_Widget_Service extends Widget_Base {
        
       $settings = $this->get_settings_for_display();
 
-      if ( $settings['style1'] == 'style1' ){ ?>
+      if ( $settings['style'] == 'style1' ){ ?>
       <div class="single-services mb-50">
           <div class="services-icon mb-30">
               <?php echo wp_get_attachment_image( $settings['icon']['id'],'full'); ?>
@@ -92,7 +92,7 @@ class makplus_Widget_Service extends Widget_Base {
           </div>
       </div>
 
-      <?php } elseif( $settings['style2'] == 'style2' ) { ?>
+      <?php } elseif( $settings['style'] == 'style2' ) { ?>
       
       <div class="single-customize-step">
           <div class="customize-icon">
