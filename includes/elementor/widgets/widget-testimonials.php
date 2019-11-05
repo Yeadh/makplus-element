@@ -42,6 +42,7 @@ class makplus_Widget_Testimonials extends Widget_Base {
             'options' => [
                'style1' => __( 'Style 1', 'makplus' ),
                'style2' => __( 'Style 2', 'makplus' ),
+               'style3' => __( 'Style 3', 'makplus' ),
             ],
          ]
       );
@@ -124,7 +125,7 @@ class makplus_Widget_Testimonials extends Widget_Base {
                       </div>
                       <div class="testi-avatar d-flex align-items-center">
                           <div class="t-avatar-img mr-15">
-                              <img src="<?php echo get_template_directory_uri() ?>/images/quote.png" alt="quote">
+                              <img src="<?php echo esc_url($testimonial_single['image']['url']) ?>" alt="person">
                           </div>
                           <div class="t-avatar-info">
                               <h4><?php echo esc_html($testimonial_single['name']); ?></h4>
@@ -136,15 +137,55 @@ class makplus_Widget_Testimonials extends Widget_Base {
             <?php endforeach; ?>
           </div>
       </div>
-
       
       <?php } elseif( $settings['style'] == 'style2' ){ ?>
 
-        
-      
+      <div class="container">
+        <div class="s-testimonial-wrap">
+          <div class="row testimonial-active">
+            <?php foreach (  $settings['testimonial_list'] as $testimonial_single ): ?>
+            <div class="col-xl-4">
+              <div class="single-testimonial s-single-testimonial mb-50 text-center">
+                <div class="t-avatar-img">
+                  <img src="<?php echo esc_url($testimonial_single['image']['url']) ?>" alt="img">
+                </div>
+                <div class="testi-content">
+                  <p>“<?php echo esc_html($testimonial_single['testimonial']); ?>”</p>
+                  <div class="t-avatar-info">
+                    <h4><?php echo esc_html($testimonial_single['name']); ?></h4>
+                    <span><?php echo esc_html($testimonial_single['designation']); ?></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <?php endforeach; ?>
+          </div>
+        </div>
+      </div>
+
       <?php } elseif( $settings['style'] == 'style3' ){ ?>
 
-        
+      <div class="container">
+        <div class="t-testimonial-wrap">
+            <div class="row t-testi-active">
+              <?php foreach (  $settings['testimonial_list'] as $testimonial_single ): ?>
+                <div class="col-12">
+                    <div class="t-single-testimonial">
+                        <div class="t-testi-img">
+                            <img src="<?php echo esc_url($testimonial_single['image']['url']) ?>" alt="img">
+                        </div>
+                        <div class="t-testi-content">
+                            <p>“<?php echo esc_html($testimonial_single['testimonial']); ?>”</p>
+                            <h5><?php echo esc_html($testimonial_single['name']); ?></h5>
+                            <span><?php echo esc_html($testimonial_single['designation']); ?></span>
+                        </div>
+                    </div>
+                </div>
+              <?php endforeach; ?>
+            </div>
+        </div>
+      </div>
+
       <?php } ?>
 
    <?php } 
