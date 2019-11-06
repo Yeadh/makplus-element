@@ -134,17 +134,6 @@ class makplus_Widget_Banner extends Widget_Base {
                         ?>
                         <button type="submit" >Search Now</button>
                       </form>
-
-                            <form action="<?php echo esc_url(home_url( '/' )); ?>">
-                                <input type="text" placeholder="Search Your Products...">
-                                <select name="name" class="selected">
-                                    <option value="">All Category</option>
-                                    <option value="">HTML Template</option>
-                                    <option value="">WP Theme</option>
-                                    <option value="">Graphic Design</option>
-                                </select>
-                                <button>Search Now</button>
-                            </form>
                         </div>
                     </div>
                 </div>
