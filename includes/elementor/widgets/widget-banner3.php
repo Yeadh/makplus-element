@@ -107,6 +107,53 @@ class makplus_Widget_Banner3 extends Widget_Base {
         <!-- slider-area -->
         <section class="slider-area slider-bg" data-background="<?php echo esc_url( $settings['Banner 3_image']['url'] ) ?>">
             <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xl-7 col-lg-10">
+                        <div class="slider-content text-center mb-45">
+                            <h2><?php echo $settings['title'] ?></h2>
+                            <p><?php echo esc_html( $settings['description'] ) ?></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-xl-8 col-lg-10">
+                        <div class="slider-search-form">
+                            <form action="#">
+                                <input type="text" placeholder="Search Your Products...">
+                                <select name="name" class="selected">
+                                    <option value="">All Category</option>
+                                    <option value="">HTML Template</option>
+                                    <option value="">WP Theme</option>
+                                    <option value="">Graphic Design</option>
+                                </select>
+                                <button>Search Now</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-xl-10">
+                        <div class="slider-dashboard">
+                            <div class="dashboard-active">
+                                <div class="single-dashboard">
+                                    <a href="product-details.html"><img src="img/slider/slider_dashboard01.jpg" alt="img"></a>
+                                </div>
+                                <div class="single-dashboard">
+                                    <a href="product-details.html"><img src="img/slider/slider_dashboard01.jpg" alt="img"></a>
+                                </div>
+                                <div class="single-dashboard">
+                                    <a href="product-details.html"><img src="img/slider/slider_dashboard01.jpg" alt="img"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- slider-area-end -->
+        <!-- slider-area -->
+        <section class="slider-area slider-bg" data-background="<?php echo esc_url( $settings['Banner 3_image']['url'] ) ?>">
+            <div class="container">
                 <div class="slider-overflow">
                     <div class="row">
                         <div class="col-xl-5 col-lg-6">
