@@ -29,6 +29,7 @@ class makplus_Widget_Title extends Widget_Base {
          [
             'label' => esc_html__( 'Title', 'makplus' ),
             'type' => Controls_Manager::SECTION,
+            'default' => __('Featured Tranding of the week','makplus')
          ]
       );
 
@@ -37,7 +38,7 @@ class makplus_Widget_Title extends Widget_Base {
          [
             'label' => __( 'Sub Title', 'makplus' ),
             'type' => \Elementor\Controls_Manager::TEXT,
-            'default' => __('exclusive feature','makplus')
+            'default' => __('Market or marketplace is location where people regularly purchase and provisins.','makplus')
          ]
       );
       
@@ -99,12 +100,11 @@ class makplus_Widget_Title extends Widget_Base {
       //Inline Editing
       $this->add_inline_editing_attributes( 'title', 'basic' );
       $this->add_inline_editing_attributes( 'sub-title', 'basic' );
-      $this->add_inline_editing_attributes( 'border', 'basic' );
       
       ?>
-      <div class="section-title <?php echo esc_attr($settings['align']).' '.esc_attr($settings['white']); ?>">
-           <span <?php echo $this->get_render_attribute_string( 'sub-title' ); ?>><?php echo esc_html($settings['sub-title']); ?></span>
-           <h2 <?php echo $this->get_render_attribute_string( 'title' ); ?>><?php echo esc_html($settings['title']); ?></h2>
+      <div class="section-title text-center mb-55 <?php echo esc_attr($settings['align']).' '.esc_attr($settings['white']); ?>">
+        <h2 <?php echo $this->get_render_attribute_string( 'title' ); ?>><?php echo esc_html($settings['title']); ?></h2>
+        <p <?php echo $this->get_render_attribute_string( 'sub-title' ); ?>><?php echo esc_html($settings['sub-title']); ?></p>
       </div>
       <?php
    }
