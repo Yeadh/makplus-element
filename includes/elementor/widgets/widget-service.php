@@ -85,9 +85,8 @@ class makplus_Widget_Service extends Widget_Base {
               <?php echo wp_get_attachment_image( $settings['icon']['id'],'full'); ?>
           </div>
           <div class="services-content">
-              <h4>eCommerce Support</h4>
               <h4><?php echo esc_html($settings['title']); ?></h4>
-               <p><?php echo esc_html($settings['text']); ?></p>
+              <p><?php echo esc_html($settings['text']); ?></p>
               <a href="#" class="btn">Learn More<i class="fas fa-long-arrow-alt-right"></i></a>
           </div>
       </div>
