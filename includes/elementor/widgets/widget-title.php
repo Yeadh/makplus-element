@@ -33,21 +33,22 @@ class makplus_Widget_Title extends Widget_Base {
          ]
       );
 
-      $this->add_control(
-         'sub-title',
-         [
-            'label' => __( 'Sub Title', 'makplus' ),
-            'type' => \Elementor\Controls_Manager::TEXT,
-            'default' => __('Market or marketplace is location where people regularly purchase and provisins.','makplus')
-         ]
-      );
-      
+
       $this->add_control(
          'title',
          [
             'label' => __( 'Title', 'makplus' ),
             'type' => \Elementor\Controls_Manager::TEXT,
             'default' => __('Awesome Customer Service With Our Tools.','makplus')
+         ]
+      );
+
+      $this->add_control(
+         'sub-title',
+         [
+            'label' => __( 'Sub Title', 'makplus' ),
+            'type' => \Elementor\Controls_Manager::TEXTAREA,
+            'default' => __('Market or marketplace is location where people regularly purchase and provisins.','makplus')
          ]
       );
 
