@@ -20,7 +20,9 @@ class makplus_Widget_Service extends Widget_Base {
    public function get_categories() {
       return [ 'makplus-elements' ];
    }
+
    protected function _register_controls() {
+    
       $this->start_controls_section(
          'service_section',
          [
@@ -61,6 +63,7 @@ class makplus_Widget_Service extends Widget_Base {
             'default' => __('Awesome Design','makplus'),
          ]
       );
+
       $this->add_control(
          'text',
          [
@@ -70,7 +73,26 @@ class makplus_Widget_Service extends Widget_Base {
          ]
       );
 
-      
+      $this->add_control(
+         'button',
+         [
+            'label' => __( 'Title', 'makplus' ),
+            'type' => \Elementor\Controls_Manager::TEXT,
+            'default' => __('Learn More','makplus'),
+            'condition' => ['style' => 'style1']
+         ]
+      );
+
+      $this->add_control(
+         'url',
+         [
+            'label' => __( 'Title', 'makplus' ),
+            'type' => \Elementor\Controls_Manager::TEXT,
+            'default' => '#',
+            'condition' => ['style' => 'style1']
+         ]
+      );
+
       $this->end_controls_section();
    }
    protected function render( $instance = [] ) {
@@ -80,14 +102,14 @@ class makplus_Widget_Service extends Widget_Base {
       $settings = $this->get_settings_for_display();
 
       if ( $settings['style'] == 'style1' ){ ?>
-      <div class="single-services mb-50">
+      <div class="single-services">
           <div class="services-icon mb-30">
               <?php echo wp_get_attachment_image( $settings['icon']['id'],'full'); ?>
           </div>
           <div class="services-content">
               <h4><?php echo esc_html($settings['title']); ?></h4>
               <p><?php echo esc_html($settings['text']); ?></p>
-              <a href="#" class="btn">Learn More<i class="fas fa-long-arrow-alt-right"></i></a>
+              <a href="<?php echo esc_url($settings['url']); ?>" class="btn"><?php echo esc_html($settings['button']); ?><i class="fas fa-long-arrow-alt-right"></i></a>
           </div>
       </div>
 
