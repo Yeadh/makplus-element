@@ -46,6 +46,14 @@ class makplus_Widget_Partner extends Widget_Base {
          ]
       );
 
+      $repeater->add_control(
+         'url',
+         [
+            'label' => __( 'URL', 'makplus' ),
+            'type' => \Elementor\Controls_Manager::TEXT,
+            'default' => '#',
+         ]
+      );
 
       $this->add_control(
          'partner_list',
@@ -64,24 +72,20 @@ class makplus_Widget_Partner extends Widget_Base {
    protected function render( $instance = [] ) {
  
       // get our input from the widget settings.
-       
       $settings = $this->get_settings_for_display(); ?>
 
-      <!-- brand-area -->
-      <div class="brand-area brand-mb">
-          <div class="container">
-              <div class="row brand-active">
-              <?php foreach (  $settings['partner_list'] as $partner_single ): ?>
-                  <div class="col-12">
-                      <div class="single-brand">
-                          <img src="<?php echo esc_url($partner_single['image']['url']); ?>" alt="img">
-                      </div>
-                  </div>
-              <?php endforeach; ?>
-              </div>
-          </div>
+      <div class="plugin-wrap">
+        <div class="row justify-content-center">
+            <?php foreach (  $settings['partner_list'] as $partner_single ): ?>
+            <div class="single-plugin text-center">
+                <a href="<?php echo esc_url( $partner_single['url'] ); ?>">
+                  <img src="<?php echo esc_url( $partner_single['image']['url'] ); ?>" alt="img">
+                </a>
+            </div>
+            <?php endforeach; ?>
+        </div>
       </div>
-      <!-- brand-area-end -->
+
    <?php } 
  
 }
