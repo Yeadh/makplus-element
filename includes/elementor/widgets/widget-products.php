@@ -69,12 +69,12 @@ class makplus_Widget_Product extends Widget_Base {
         <div class="col-12 text-center">
           <div class="product-menu mb-60">
             <button class="active" data-filter="*">All Items</button>
-            <?php  $portfolio_menu_terms = get_terms( array(
-               'taxonomy' => 'portfolio_category',
+            <?php  $product_menu_terms = get_terms( array(
+               'taxonomy' => 'product_cat',
                'hide_empty' => false,  
             ) ); 
 
-            foreach ( $portfolio_menu_terms as $portfolio_menu_term ) { ?>
+            foreach ( $product_menu_terms as $portfolio_menu_term ) { ?>
               <button class="" data-filter=".<?php echo esc_attr( $portfolio_menu_term->slug ) ?>"><?php echo esc_html( $portfolio_menu_term->name ) ?></button>
             <?php } ?>
           </div>
@@ -91,9 +91,9 @@ class makplus_Widget_Product extends Widget_Base {
          /* Start the Loop */
         global $product;
         while ( $products->have_posts() ) : $products->the_post();
-        $portfolio_terms = get_the_terms( get_the_ID() , 'portfolio_category' ); ?>
+        $product_terms = get_the_terms( get_the_ID() , 'product_cat' ); ?>
 
-        <div class="col-xl-3 col-lg-4 col-md-6 grid-item <?php foreach ($portfolio_terms as $portfolio_term) { echo esc_attr( $portfolio_term->slug ); } ?>">
+        <div class="col-xl-3 col-lg-4 col-md-6 grid-item <?php foreach ($product_terms as $portfolio_term) { echo esc_attr( $portfolio_term->slug ); } ?>">
             <div class="single-product mb-30">
                 <div class="product-img">
                     <a href="<?php the_permalink() ?>"><?php the_post_thumbnail('makplus-297x229') ?></a>
