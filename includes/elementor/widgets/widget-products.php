@@ -35,7 +35,7 @@ class makplus_Widget_Product extends Widget_Base {
          [
             'label' => __( 'Post per page', 'makplus' ),
             'type' => \Elementor\Controls_Manager::NUMBER,
-            'default' => 14,
+            'default' => 8,
             'min' => 5,
             'max' => 100,
             'step' => 1
