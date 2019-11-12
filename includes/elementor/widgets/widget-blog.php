@@ -67,7 +67,7 @@ class makplus_Widget_Blog extends Widget_Base {
       //Inline Editing
       $this->add_inline_editing_attributes( 'ppp', 'basic' );
       ?>
-
+      
       <div class="container">
          <div class="row justify-content-center">
                <?php
