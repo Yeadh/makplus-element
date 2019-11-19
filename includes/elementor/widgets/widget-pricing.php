@@ -166,10 +166,10 @@ class makplus_Widget_Pricing extends Widget_Base {
                  <img src="<?php echo esc_url( $settings['icon']['url'] ); ?>" alt="<?php echo esc_attr( $settings['title'] ); ?>">
              </div>
              <h5><?php echo esc_html( $settings['title'] ); ?></h5>
-             <span><?php echo $settings['package']; ?></span>
+             <span><?php echo esc_html( $settings['package'] ); ?></span>
              <p>Subscribe Best Plans</p>
              <div class="price-count">
-                 <h4><?php echo esc_html( $settings['price'] ); ?></h4>
+                 <h4><?php echo $settings['price']; ?></h4>
              </div>
          </div>
          <div class="pricing-list mb-30">
