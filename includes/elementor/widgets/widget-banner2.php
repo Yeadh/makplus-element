@@ -32,24 +32,6 @@ class makplus_Widget_Banner2 extends Widget_Base {
          ]
       );
 
-
-      $this->add_control(
-         'style',
-         [
-            'label' => __( 'Banner Style', 'makplus' ),
-            'type' => \Elementor\Controls_Manager::SELECT,
-            'default' => 'saas',
-            'options' => [
-               'saas' => __( 'SaaS', 'makplus' ),
-               'hrmanagement' => __( 'HR Management', 'makplus' ),
-               'digitalmarketing' => __( 'Digital Marketing', 'makplus' ),
-               'accountsbilling' => __( 'Accounts Billing', 'makplus' ),
-               'how_we_work' => __( 'How we work', 'makplus' ),
-            ],
-         ]
-      );
-
-
       $this->add_control(
       'banner_image',
         [
@@ -76,38 +58,6 @@ class makplus_Widget_Banner2 extends Widget_Base {
             'label' => __( 'Description', 'makplus' ),
             'type' => \Elementor\Controls_Manager::TEXTAREA,
             'default' => __('Lorem ipsum dolor sit amet, consectetur adipiscing seddo eiumod tempor incididunt labore dolore','makplus')
-         ]
-      );
-
-      $this->add_control(
-         'btn_text', [
-            'label' => __( 'Text', 'makplus' ),
-            'type' => \Elementor\Controls_Manager::TEXT,
-            'default' => __('get started','makplus')
-         ]
-      );
-
-      $this->add_control(
-         'btn_url', [
-            'label' => __( 'URL', 'makplus' ),
-            'type' => \Elementor\Controls_Manager::TEXT,
-            'default' => '#'
-         ]
-      );
-
-      $this->add_control(
-         'btn_text2', [
-            'label' => __( 'Text', 'makplus' ),
-            'type' => \Elementor\Controls_Manager::TEXT,
-            'default' => __('contact us','makplus')
-         ]
-      );
-
-      $this->add_control(
-         'btn_url2', [
-            'label' => __( 'URL', 'makplus' ),
-            'type' => \Elementor\Controls_Manager::TEXT,
-            'default' => '#'
          ]
       );
 
