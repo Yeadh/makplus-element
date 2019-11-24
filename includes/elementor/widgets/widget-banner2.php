@@ -81,7 +81,7 @@ class makplus_Widget_Banner2 extends Widget_Base {
               </div>
               <div class="row justify-content-center">
                   <div class="col-xl-8 col-lg-10">
-                      <div class="s-slider-search-form wow fadeInUp" data-wow-delay="0.6s">
+                      <div class="s-slider-search-form">
                         <form action="<?php echo esc_url(home_url( '/' )); ?>">
                             <input type="text" placeholder="<?php echo esc_attr_x( 'Search what your need...', 'placeholder', 'makplus' ); ?>">
                             <button><i class="fas fa-search"></i></button>

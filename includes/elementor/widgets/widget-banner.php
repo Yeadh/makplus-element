@@ -129,6 +129,7 @@ class makplus_Widget_Banner extends Widget_Base {
                           // for more information see http://codex.wordpress.org/Function_Reference/wp_dropdown_categories
                           $makplus_cat_dropdown_args = array(
                               'show_option_all' => __( 'Any Category' ),
+                              'taxonomy' => 'product_cat',
                             );
                           wp_dropdown_categories( $makplus_cat_dropdown_args );
                         ?>

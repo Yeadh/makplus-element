@@ -35,7 +35,7 @@ class makplus_Widget_Banner3 extends Widget_Base {
       $this->add_control(
       'banner_image',
         [
-          'label' => __( 'Banner 3 image', 'makplus' ),
+          'label' => __( 'Banner image', 'makplus' ),
           'type' => \Elementor\Controls_Manager::MEDIA,
           'default' => [
             'url' => get_template_directory_uri().'/images/slider_bg03.jpg',
@@ -45,7 +45,7 @@ class makplus_Widget_Banner3 extends Widget_Base {
       $this->add_control(
       'image',
         [
-          'label' => __( 'Banner 3 image', 'makplus' ),
+          'label' => __( 'Banner Right image', 'makplus' ),
           'type' => \Elementor\Controls_Manager::MEDIA,
           'default' => [
             'url' => get_template_directory_uri().'/images/slider_img.png',
@@ -89,7 +89,7 @@ class makplus_Widget_Banner3 extends Widget_Base {
                           <div class="slider-content s-slider-content t-slider-content">
                             <h2><?php echo $settings['title'] ?></h2>
                             <p><?php echo esc_html( $settings['description'] ) ?></p>
-                              <div class="s-slider-search-form t-slider-search-form wow fadeInUp" data-wow-delay="0.6s">
+                              <div class="s-slider-search-form t-slider-search-form">
                                 <form action="<?php echo esc_url(home_url( '/' )); ?>">
                                   <input type="text" placeholder="<?php echo esc_attr_x( 'Search what your need...', 'placeholder', 'makplus' ); ?>">
                                   <button><i class="fas fa-search"></i></button>
@@ -98,7 +98,7 @@ class makplus_Widget_Banner3 extends Widget_Base {
                           </div>
                       </div>
                       <div class="col-xl-6 col-lg-5 d-none d-lg-block">
-                          <div class="t-slider-img text-right wow fadeInRight" data-wow-delay="0.4s">
+                          <div class="t-slider-img text-right">
                               <img src="<?php echo esc_url($settings['image']['url']) ?>" alt="img">
                           </div>
                       </div>
