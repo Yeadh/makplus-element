@@ -48,7 +48,7 @@ class makplus_Widget_Banner2 extends Widget_Base {
          [
             'label' => __( 'Title', 'makplus' ),
             'type' => \Elementor\Controls_Manager::TEXT,
-            'default' => __('Thinking Software High Quality','makplus')
+            'default' => __('Let\'s Start. Marketplace for Digital Themes & Plugins','makplus')
          ]
       );
 
@@ -57,7 +57,7 @@ class makplus_Widget_Banner2 extends Widget_Base {
          [
             'label' => __( 'Description', 'makplus' ),
             'type' => \Elementor\Controls_Manager::TEXTAREA,
-            'default' => __('Lorem ipsum dolor sit amet, consectetur adipiscing seddo eiumod tempor incididunt labore dolore','makplus')
+            'default' => __('New Products on the Marketplace.Your dream site download!','makplus')
          ]
       );
 
