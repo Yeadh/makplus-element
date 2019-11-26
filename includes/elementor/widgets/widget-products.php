@@ -144,7 +144,7 @@ class makplus_Widget_Product extends Widget_Base {
         global $product;?>
 
         <div class="col-lg-4 col-md-6 grid-item <?php foreach ($product_terms as $portfolio_term) { echo esc_attr( $portfolio_term->slug ); } ?>">
-            <div class="single-product t-single-product mb-30">
+            <div class="single-product-item t-single-product-item mb-30">
                 <div class="product-img">
                     <a href="<?php the_permalink() ?>"><?php the_post_thumbnail('makplus-297x306') ?></a>
                 </div>
