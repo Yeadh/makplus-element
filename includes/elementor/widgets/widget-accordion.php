@@ -60,18 +60,6 @@ class makplus_Widget_Accordion extends Widget_Base {
             'type' => \Elementor\Controls_Manager::TEXTAREA
          ]
       );
-      
-      $accordion->add_control(
-         'active',
-         [
-            'label' => __( 'Active', 'makplus' ),
-            'type' => \Elementor\Controls_Manager::SWITCHER,
-            'label_on' => __( 'On', 'makplus' ),
-            'label_off' => __( 'Off', 'makplus' ),
-            'default' => 'off',
-         ]
-      );
-
 
       $this->add_control(
          'accordion_list',
@@ -129,7 +117,7 @@ class makplus_Widget_Accordion extends Widget_Base {
                                   </a>
                               </h5>
                           </div>
-                          <div id="collapse<?php echo $key.$randID ?>" class="collapse <?php if ( $settings['active']=='on' ){echo'show';} ?>" aria-labelledby="heading<?php echo $key.$randID ?>" data-parent="#accordionExample<?php echo $randID ?>">
+                          <div id="collapse<?php echo $key.$randID ?>" class="collapse" aria-labelledby="heading<?php echo $key.$randID ?>" data-parent="#accordionExample<?php echo $randID ?>">
                               <div class="card-body">
                                   <p><?php echo esc_html( $accordion['text'] ); ?></p>
                               </div>
