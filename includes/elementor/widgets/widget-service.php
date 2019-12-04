@@ -102,7 +102,7 @@ class makplus_Widget_Service extends Widget_Base {
       $settings = $this->get_settings_for_display();
 
       if ( $settings['style'] == 'style1' ){ ?>
-      <div class="single-services">
+      <div class="single-services mb-50">
           <div class="services-icon mb-30">
               <?php echo wp_get_attachment_image( $settings['icon']['id'],'full'); ?>
           </div>
