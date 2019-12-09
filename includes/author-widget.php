@@ -37,6 +37,7 @@ if( !class_exists('makplus_Author') ){
 		
 		$title = ( ! empty( $instance['title'] ) ) ? $instance['title'] : esc_html__( 'About Author','makplus' );
 		$profile_image = ( ! empty( $instance['profile_image'] ) ) ? $instance['profile_image'] : '';
+		$designation = ( ! empty( $instance['designation'] ) ) ? $instance['designation'] : esc_html__( 'Markplus CEO','makplus' );
 		$short_description = ( ! empty( $instance['short_description'] ) ) ? $instance['short_description'] : esc_html__( 'A design is plan or specification for the construction','makplus' );
 		$facebook = ( ! empty( $instance['facebook'] ) ) ? $instance['facebook'] : '#';
 		$twitter = ( ! empty( $instance['twitter'] ) ) ? $instance['twitter'] : '#';
@@ -56,6 +57,7 @@ if( !class_exists('makplus_Author') ){
             <?php if ($profile_image): ?>
 		    	<div class="sidebar-about-thumb mb-30 text-center">
 		            <img src="<?php echo esc_url( $profile_image ) ?>" alt="<?php echo esc_attr( $title ); ?>">
+		            <span><?php echo esc_attr( $designation ); ?></span>
 		        </div>
 		    <?php endif ?>
             <div class="sidebar-about-content text-center">
@@ -88,6 +90,7 @@ if( !class_exists('makplus_Author') ){
 			$instance = $old_instance;
 			$instance['title'] = sanitize_text_field( $new_instance['title'] );
 			$instance['profile_image'] = sanitize_text_field( $new_instance['profile_image'] );
+			$instance['designation'] = sanitize_text_field( $new_instance['designation'] );
 			$instance['short_description'] = sanitize_text_field( $new_instance['short_description'] );
 			$instance['facebook'] = sanitize_text_field( $new_instance['facebook'] );
 			$instance['twitter'] = sanitize_text_field( $new_instance['twitter'] );
@@ -108,6 +111,7 @@ if( !class_exists('makplus_Author') ){
 		$title     = isset( $instance['title'] ) ? esc_attr( $instance['title'] ) : '';
 		$profile_image     = isset( $instance['profile_image'] ) ? esc_attr( $instance['profile_image'] ) : '';
 		$short_description     = isset( $instance['short_description'] ) ? esc_attr( $instance['short_description'] ) : '';
+		$designation = isset( $instance['designation'] ) ? esc_attr( $instance['designation'] ) : '';
 		$facebook     = isset( $instance['facebook'] ) ? esc_attr( $instance['facebook'] ) : '';
 		$twitter     = isset( $instance['twitter'] ) ? esc_attr( $instance['twitter'] ) : '';
 		$pinterest     = isset( $instance['pinterest'] ) ? esc_attr( $instance['pinterest'] ) : '';
@@ -124,6 +128,10 @@ if( !class_exists('makplus_Author') ){
 	        <input type="text" class="widefat <?php echo esc_attr($this->get_field_id( 'profile_image' )); ?>_url" name="<?php echo esc_attr($this->get_field_name( 'profile_image' )); ?>" value="<?php echo esc_attr($profile_image); ?>" style="margin-top:5px;" />
 	        <input type="button" id="<?php echo esc_attr($this->get_field_id( 'profile_image' )); ?>" class="button button-primary js_custom_upload_media" value="Upload Image" style="margin-top:5px;" />
 	    </p>
+	    <p>
+			<label for="<?php echo esc_attr($this->get_field_id( 'designation' )); ?>"><?php echo esc_html__( 'Designation:','makplus' ); ?></label>
+			<input class="widefat" id="<?php echo esc_attr($this->get_field_id( 'designation' )); ?>" name="<?php echo esc_attr($this->get_field_name( 'designation' )); ?>" type="text" value="<?php echo esc_attr($designation); ?>" />
+		</p>
 		<p>
 			<label for="<?php echo esc_attr($this->get_field_id( 'short_description' )); ?>"><?php echo esc_html__( 'Short description:','makplus' ); ?></label>
 			<textarea class="widefat" rows="5" cols="30" id="<?php echo esc_attr($this->get_field_id( 'short_description' )); ?>" name="<?php echo esc_attr($this->get_field_name( 'short_description' )); ?>"><?php echo stripslashes( $short_description ); ?></textarea>
