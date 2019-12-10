@@ -130,7 +130,7 @@ class makplus_Widget_Product extends Widget_Base {
                     <a href="<?php the_permalink() ?>"><?php the_post_thumbnail('makplus-297x306') ?></a>
                 </div>
                 <div class="product-action">
-                    <a href="#" class="btn"><i class="far fa-eye"></i><?php echo esc_html__( 'Buy Now','makplus' ) ?></a>
+                    <a href="<?php echo do_shortcode('[add_to_cart_url id="'.get_the_ID().'"]'); ?>" class="btn"><i class="far fa-eye"></i><?php echo esc_html__( 'Buy Now','makplus' ) ?></a>
                     <a href="<?php echo esc_url(get_post_meta( get_the_ID(), 'makplus_live_preview', 1 )) ?>" class="btn"><i class="far fa-eye"></i><?php echo esc_html__( 'Demo','makplus' ) ?></a>
                 </div>
                 <div class="product-overlay">
