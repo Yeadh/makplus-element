@@ -81,7 +81,7 @@ class makplus_Widget_Product extends Widget_Base {
       $settings = $this->get_settings_for_display(); ?>
 
       <div class="row justify-content-center">
-        <div class="col-<?php if ( $settings['style'] == 'style1' ){ echo '12'; }else{echo '9';} ?> text-center">
+        <div class="text-center">
           <div class="product-menu <?php if ( $settings['style'] == 'style2' or $settings['style'] == 'style3' ){ echo 's-product-menu'; } ?> mb-60">
             <button class="active" data-filter="*">All Items</button>
             <?php  $product_menu_terms = get_terms( array(
