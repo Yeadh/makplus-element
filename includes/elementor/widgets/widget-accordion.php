@@ -135,30 +135,34 @@ class makplus_Widget_Accordion extends Widget_Base {
 
       <?php } elseif( $settings['style'] == 'style2' ){ ?>
 
-      <div class="faq-wrapper s-faq-wrapper">
-          <div class="accordion" id="accordionExampleS">
-            <?php if ( $settings['accordion_list'] ) {
+          <div class="faq-wrapper s-faq-wrapper">
+              <div class="accordion" id="accordionExampleS">
+                  
+                <?php if ( $settings['accordion_list'] ) {
                   foreach (  $settings['accordion_list'] as $key => $accordion ) { ?>
-              <div class="card">
-                  <div class="card-header" id="heading<?php echo $key.$randID ?>">
-                      <h5 class="mb-0">
-                          <a href="#" class="btn-link collapsed" data-toggle="collapse"
-                              data-target="#collapse<?php echo $key.$randID ?>" aria-expanded="false" aria-controls="collapse<?php echo $key.$randID ?>">
-                               <?php echo esc_html( $accordion['title'] ); ?>
-                          </a>
-                      </h5>
-                  </div>
-                  <div id="collapse<?php echo $key.$randID ?>" class="collapse" aria-labelledby="heading<?php echo $key.$randID ?>"
-                      data-parent="#accordionExample<?php echo $key.$randID ?>">
-                      <div class="card-body">
-                          <p><?php echo esc_html( $accordion['text'] ); ?></p>
+
+                  <div class="card">
+                      <div class="card-header" id="heading<?php echo $key.$randID ?>S">
+                          <h5 class="mb-0">
+                              <a href="#" class="btn-link collapsed" data-toggle="collapse" data-target="#collapse<?php echo $key.$randID ?>S"
+                                  aria-expanded="false" aria-controls="collapse<?php echo $key.$randID ?>S">
+                                  <?php echo esc_html( $accordion['title'] ); ?>
+                              </a>
+                          </h5>
+                      </div>
+                      <div id="collapse<?php echo $key.$randID ?>S" class="collapse" aria-labelledby="heading<?php echo $key.$randID ?>S"
+                          data-parent="#accordionExampleS">
+                          <div class="card-body">
+                              <p><?php echo esc_html( $accordion['text'] ); ?></p>
+                          </div>
                       </div>
                   </div>
+
+                <?php } 
+              } ?>
+
               </div>
-              <?php } 
-            } ?>
-        </div>
-      </div>
+          </div>
       
       <?php } ?>
 
