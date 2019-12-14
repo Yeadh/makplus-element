@@ -103,8 +103,7 @@ class makplus_Widget_Testimonials extends Widget_Base {
             4 => __( 'Star 4', 'makplus' ),
             5 => __( 'Star 5', 'makplus' ),
             'none' => __( 'None', 'makplus' ),
-          ],
-          'condition' => ['style' => 'style4']
+          ]
         ]
       );
 
