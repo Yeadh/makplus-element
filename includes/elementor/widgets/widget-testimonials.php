@@ -43,6 +43,7 @@ class makplus_Widget_Testimonials extends Widget_Base {
                'style1' => __( 'Style 1', 'makplus' ),
                'style2' => __( 'Style 2', 'makplus' ),
                'style3' => __( 'Style 3', 'makplus' ),
+               'style4' => __( 'Style 4', 'makplus' ),
             ],
          ]
       );
@@ -184,6 +185,34 @@ class makplus_Widget_Testimonials extends Widget_Base {
               <?php endforeach; ?>
             </div>
         </div>
+      </div>
+
+      <?php } elseif( $settings['style'] == 'style4' ){ ?>
+
+        <div class="faq-testimonial f-testi-active">
+          <?php foreach (  $settings['testimonial_list'] as $testimonial_single ): ?>
+          <div class="f-single-testimonial">
+              <div class="f-testi-content">
+                  <p>“<?php echo esc_html($testimonial_single['testimonial']); ?>”</p>
+                  <div class="f-testi-rating">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                  </div>
+              </div>
+              <div class="f-testi-avatar">
+                  <div class="ft-avatar-img">
+                      <img src="<?php echo esc_url($testimonial_single['image']['url']) ?>" alt="img">
+                  </div>
+                  <div class="ft-avatar-info">
+                      <h5><?php echo esc_html($testimonial_single['name']); ?></h5>
+                      <span><?php echo esc_html($testimonial_single['designation']); ?></span>
+                  </div>
+              </div>
+          </div>
+        <?php endforeach; ?>
       </div>
 
       <?php } ?>
