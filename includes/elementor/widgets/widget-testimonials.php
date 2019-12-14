@@ -90,6 +90,23 @@ class makplus_Widget_Testimonials extends Widget_Base {
          ]
       );
 
+      $repeater->add_control(
+        'rating',
+        [
+          'label' => __( 'Rating', 'makplus' ),
+          'type' => \Elementor\Controls_Manager::SELECT,
+          'default' => 1,
+          'options' => [
+            1 => __( 'Star 1', 'makplus' ),
+            2 => __( 'Star 2', 'makplus' ),
+            3 => __( 'Star 3', 'makplus' ),
+            4 => __( 'Star 4', 'makplus' ),
+            5 => __( 'Star 5', 'makplus' ),
+            'none' => __( 'None', 'makplus' ),
+          ],
+        ]
+      );
+
       $this->add_control(
          'testimonial_list',
          [
@@ -194,13 +211,13 @@ class makplus_Widget_Testimonials extends Widget_Base {
           <div class="f-single-testimonial">
               <div class="f-testi-content">
                   <p>“<?php echo esc_html($testimonial_single['testimonial']); ?>”</p>
-                  <div class="f-testi-rating">
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                  </div>
+                  <?php if ('none'!==$testimonial_single['rating']): ?>
+                    <div class="f-testi-rating">
+                      <?php for ($i = 1; $i <= $testimonial_single['rating']; $i++) {
+                        echo '<i class="fas fa-star"></i>';
+                      } ?>
+                    </div>
+                  <?php endif ?>                  
               </div>
               <div class="f-testi-avatar">
                   <div class="ft-avatar-img">

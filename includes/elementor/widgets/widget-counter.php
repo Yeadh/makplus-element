@@ -80,7 +80,7 @@ class makplus_Widget_Counter extends Widget_Base {
        
       $settings = $this->get_settings_for_display(); ?>
 
-      <section class="counter-area inner-counter-bg counter-bg pt-110 pb-60" data-background="<?php echo get_template_directory_uri() ?>/images/counter_bg.jpg">
+      <section class="counter-area inner-counter-bg counter-bg pt-110 pb-60">
          <div class="container">
            <div class="row">
             <?php foreach (  $settings['counter'] as $counter_single ): ?>
