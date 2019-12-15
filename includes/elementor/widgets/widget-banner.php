@@ -118,23 +118,21 @@ class makplus_Widget_Banner extends Widget_Base {
                     <div class="col-xl-8 col-lg-10">
 
                       <div class="slider-search-form">
-
-                      <form role="search" method="get" class="search-form" action="<?php echo home_url( '/' ); ?>">
-                        <label>
-                          <span class="screen-reader-text"><?php echo _x( 'Search for:', 'label' ) ?></span>
-                          <input type="search" class="search-field" placeholder="Search..." value="<?php echo esc_attr( get_search_query() ); ?>" name="s" title="<?php echo esc_attr_x( 'Search for:', 'label' ); ?>" />
-                        </label>
-                        <?php
-                          // output all of our Categories
-                          // for more information see http://codex.wordpress.org/Function_Reference/wp_dropdown_categories
-                          $makplus_cat_dropdown_args = array(
-                              'show_option_all' => __( 'Any Category' ),
-                              'taxonomy' => 'product_cat',
-                            );
-                          wp_dropdown_categories( $makplus_cat_dropdown_args );
-                        ?>
-                        <button type="submit" >Search Now</button>
-                      </form>
+                        <form role="search" method="get" class="search-form" action="<?php echo home_url( '/' ); ?>">
+                            <span class="screen-reader-text"><?php echo _x( 'Search for:', 'label' ) ?></span>
+                            <input type="search" class="search-field" placeholder="Search Your Products..." value="<?php echo esc_attr( get_search_query() ); ?>" name="s" title="<?php echo esc_attr_x( 'Search for:', 'label' ); ?>" />
+                          <?php
+                            // output all of our Categories
+                            // for more information see http://codex.wordpress.org/Function_Reference/wp_dropdown_categories
+                            $makplus_cat_dropdown_args = array(
+                                'show_option_all' => __( 'Any Category' ),
+                                'taxonomy' => 'product_cat',
+                                'class' => 'selected',
+                              );
+                            wp_dropdown_categories( $makplus_cat_dropdown_args );
+                          ?>
+                          <button type="submit" >Search Now</button>
+                        </form>
                         </div>
                     </div>
                 </div>
