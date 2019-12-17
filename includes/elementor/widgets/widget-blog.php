@@ -132,7 +132,7 @@ class makplus_Widget_Blog extends Widget_Base {
                           </ul>
                         </div>
                         <h5><a href="<?php the_permalink() ?>"><?php the_title() ?></a></h5>
-                        <p><?php echo wp_trim_words( get_the_content(), 15, '.' ); ?></p>
+                        <p><?php echo wp_trim_words( get_the_content(), 13, '.' ); ?></p>
                         <a href="<?php the_permalink(); ?>"><?php echo esc_html__( 'Read More', 'makplus' ); ?><i class="fas fa-long-arrow-alt-right"></i></a>
                     </div>
                 </div>
