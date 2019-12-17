@@ -75,12 +75,13 @@ class makplus_Widget_Product_Thumb extends Widget_Base {
               'order' => $settings['order'],
            ));
            /* Start the Loop */
-           while ( $blog->have_posts() ) : $blog->the_post(); ?>
+           while ( $blog->have_posts() ) : $blog->the_post();
+           global $product; ?>
             <div class="single-product-item-thumb">
                 <a href="<?php the_permalink() ?>">
                   <img src="<?php echo esc_url( get_post_meta( get_the_ID(), 'makplus_thumb', 1 ), 'makplus-120x120' ); ?>">
                 </a>
-                
+
               <div class="tooltip-wrap">
                   <div class="tooltip-thumb">
                       <a href="<?php the_permalink() ?>"><?php the_post_thumbnail('makplus-325x170') ?></a>
