@@ -122,7 +122,7 @@ class makplus_Widget_Blog extends Widget_Base {
                         <span class="blog-post-date">aug 19, 2019</span>
                     </div>
                     <div class="blog-content s-blog-content">
-                        <div class="blog-meta mb-15">
+                        <div class="blog-meta mb-10">
                           <ul>
                               <li>
                                 <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><i class="far fa-user"></i><?php echo esc_html__( 'By','zaaple' ); ?> <?php the_author(); ?></a>
