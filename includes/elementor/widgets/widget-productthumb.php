@@ -85,6 +85,30 @@ class makplus_Widget_Product_Thumb extends Widget_Base {
          </div>
       </div>
 
+
+      <div class="tooltip-wrap">
+          <div class="tooltip-thumb">
+              <a href="#"><img src="img/product/tooltip_thumb.jpg" alt="img"></a>
+          </div>
+          <div class="tooltip-content">
+              <div class="tooltip-product-info">
+                  <h4><a href="#">Featured Tranding</a></h4>
+                  <a href="#" class="tooltip-cat">WP Theme</a>
+              </div>
+              <div class="tooltip-product-price">
+                  <h5>$29</h5>
+                  <span>15 Sales</span>
+              </div>
+              <div class="tooltip-rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+              </div>
+          </div>
+      </div>
+
       <?php
    }
  
