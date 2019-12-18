@@ -55,7 +55,7 @@ if( !class_exists('makplus_Author') ){
 			endif;  ?>
 			
             <?php if ($profile_image): ?>
-		    	<div class="sidebar-about-thumb mb-30 text-center">
+		    	<div class="sidebar-about-thumb mb-20 text-center">
 		            <img src="<?php echo esc_url( $profile_image ) ?>" alt="<?php echo esc_attr( $title ); ?>">
 		            <span><?php echo esc_attr( $designation ); ?></span>
 		        </div>
