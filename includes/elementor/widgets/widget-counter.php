@@ -90,7 +90,7 @@ class makplus_Widget_Counter extends Widget_Base {
                            <img src="<?php echo $counter_single['icon']['url'] ?>" alt="img">
                        </div>
                        <div class="counter-content">
-                           <h2 class="count"><?php echo $counter_single['count'] ?></h2>
+                           <h2 class="countt"><?php echo $counter_single['count'] ?></h2>
                            <span><?php echo $counter_single['title'] ?></span>
                        </div>
                    </div>
