@@ -81,6 +81,24 @@ class makplus_Widget_Product_Thumb extends Widget_Base {
                 <a href="<?php the_permalink() ?>">
                   <img src="<?php echo esc_url( get_post_meta( get_the_ID(), 'makplus_thumb', 1 ), 'makplus-120x120' ); ?>">
                 </a>
+                <div class="tooltip-wrap">
+                    <div class="tooltip-thumb">
+                         <a href="<?php the_permalink() ?>"><?php the_post_thumbnail('makplus-325x170') ?></a>
+                    </div>
+                    <div class="tooltip-content">
+                        <div class="tooltip-product-info">
+                            <h4> <a href="<?php the_permalink() ?>"><?php the_title() ?></a></h4>
+                            <a href="#" class="tooltip-cat">WP Theme</a>
+                        </div>
+                        <div class="tooltip-product-price">
+                            <h5><?php echo get_woocommerce_currency_symbol().get_post_meta( get_the_ID(), '_regular_price', true ); ?></h5>
+                            <span><?php echo $product->get_total_sales(); ?> Sales</span>
+                        </div>
+                        <div class="tooltip-rating text-center">
+                            <?php woocommerce_template_loop_rating(); ?>
+                        </div>
+                    </div>
+                </div>
             </div>
           <?php endwhile; wp_reset_postdata(); ?>
          </div>
