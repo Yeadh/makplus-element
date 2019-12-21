@@ -82,17 +82,10 @@ class makplus_Widget_Banner2 extends Widget_Base {
               <div class="row justify-content-center">
                   <div class="col-xl-8 col-lg-10">
                       <div class="s-slider-search-form">
-                        <form role="search" method="get" action="<?php echo esc_url(home_url( '/' )); ?>">
-                            <input type="text" value="<?php echo get_search_query(); ?>" placeholder="<?php echo esc_attr_x( 'Search what your need...', 'placeholder', 'makplus' ); ?>">
-                            <button><i class="fas fa-search"></i></button>
-                            <input type="hidden" name="post_type" value="product" />
-                        </form> 
-
-
                         <form role="search" method="get" class="woocommerce-product-search" action="<?php echo esc_url( home_url( '/' ) ); ?>">
                         <label class="screen-reader-text" for="woocommerce-product-search-field-<?php echo isset( $index ) ? absint( $index ) : 0; ?>"><?php esc_html_e( 'Search for:', 'woocommerce' ); ?></label>
-                        <input type="search" id="woocommerce-product-search-field-<?php echo isset( $index ) ? absint( $index ) : 0; ?>" class="search-field" placeholder="<?php echo esc_attr__( 'Search products&hellip;', 'woocommerce' ); ?>" value="<?php echo get_search_query(); ?>" name="s" />
-                        <button type="submit" value="<?php echo esc_attr_x( 'Search', 'submit button', 'woocommerce' ); ?>"><?php echo esc_html_x( 'Search', 'submit button', 'woocommerce' ); ?></button>
+                        <input type="search" id="woocommerce-product-search-field-<?php echo isset( $index ) ? absint( $index ) : 0; ?>" class="search-field" placeholder="<?php echo esc_attr__( 'Search what your need...', 'woocommerce' ); ?>" value="<?php echo get_search_query(); ?>" name="s" />
+                        <button type="submit" ><i class="fas fa-search"></i></button>
                         <input type="hidden" name="post_type" value="product" />
                       </form>
                       </div>
