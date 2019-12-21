@@ -90,9 +90,10 @@ class makplus_Widget_Banner3 extends Widget_Base {
                             <h2><?php echo $settings['title'] ?></h2>
                             <p><?php echo esc_html( $settings['description'] ) ?></p>
                               <div class="s-slider-search-form t-slider-search-form">
-                                <form action="<?php echo esc_url(home_url( '/' )); ?>">
+                                <form role="search" method="get" value="<?php echo get_search_query(); ?>" action="<?php echo esc_url(home_url( '/' )); ?>">
                                   <input type="text" placeholder="<?php echo esc_attr_x( 'Search what your need...', 'placeholder', 'makplus' ); ?>">
                                   <button><i class="fas fa-search"></i></button>
+                                  <input type="hidden" name="post_type" value="product" />
                                 </form>
                               </div>
                           </div>

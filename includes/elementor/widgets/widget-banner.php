@@ -122,8 +122,6 @@ class makplus_Widget_Banner extends Widget_Base {
                             <span class="screen-reader-text"><?php echo _x( 'Search for:', 'label' ) ?></span>
                             <input type="search" class="search-field" placeholder="Search Your Products..." value="<?php echo esc_attr( get_search_query() ); ?>" name="s" title="<?php echo esc_attr_x( 'Search for:', 'label' ); ?>" />
                           <?php
-                            // output all of our Categories
-                            // for more information see http://codex.wordpress.org/Function_Reference/wp_dropdown_categories
                             $makplus_cat_dropdown_args = array(
                                 'show_option_all' => __( 'Any Category' ),
                                 'taxonomy' => 'product_cat',
@@ -131,8 +129,10 @@ class makplus_Widget_Banner extends Widget_Base {
                               );
                             wp_dropdown_categories( $makplus_cat_dropdown_args );
                           ?>
-                          <button type="submit" >Search Now</button>
+                          <button type="submit" ><?php echo esc_html__( 'Search Now', 'makplus' ) ?></button>
+                          <input type="hidden" name="post_type" value="product" />
                         </form>
+                        
                         </div>
                     </div>
                 </div>
