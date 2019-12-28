@@ -101,58 +101,55 @@ class makplus_Widget_Banner extends Widget_Base {
 
    protected function render( $instance = [] ) {
  
-      // get our input from the widget settings.
-       
-      $settings = $this->get_settings_for_display(); ?>
-      <section class="slider-area slider-bg" style="background-image: url(<?php echo esc_url($settings['banner_image']['url']) ?>)">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-xl-7 col-lg-10">
-                        <div class="slider-content text-center mb-45">
-                            <h2><?php echo $settings['title'] ?></h2>
-                            <p><?php echo esc_html( $settings['description'] ) ?></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row justify-content-center">
-                    <div class="col-xl-8 col-lg-10">
+    // get our input from the widget settings.       
+    $settings = $this->get_settings_for_display(); ?>
 
-                      <div class="slider-search-form">
-                        <form role="search" method="get" class="search-form" action="<?php echo home_url( '/' ); ?>">
-                            <span class="screen-reader-text"><?php echo _x( 'Search for:', 'label' ) ?></span>
-                            <input type="search" class="search-field" placeholder="Search Your Products..." value="<?php echo esc_attr( get_search_query() ); ?>" name="s" title="<?php echo esc_attr_x( 'Search for:', 'label' ); ?>" />
-                          <?php
-                            $makplus_cat_dropdown_args = array(
-                                'show_option_all' => __( 'Any Category' ),
-                                'taxonomy' => 'product_cat',
-                                'class' => 'selected',
-                              );
-                            wp_dropdown_categories( $makplus_cat_dropdown_args );
-                          ?>
-                          <button type="submit" ><?php echo esc_html__( 'Search Now', 'makplus' ) ?></button>
-                          <input type="hidden" name="post_type" value="product" />
-                        </form>
-                        
-                        </div>
-                    </div>
-                </div>
+    <section class="slider-area slider-bg" style="background-image: url(<?php echo esc_url($settings['banner_image']['url']) ?>)">
+          <div class="container">
+              <div class="row justify-content-center">
+                  <div class="col-xl-7 col-lg-10">
+                      <div class="slider-content text-center mb-45">
+                          <h2><?php echo $settings['title'] ?></h2>
+                          <p><?php echo esc_html( $settings['description'] ) ?></p>
+                      </div>
+                  </div>
+              </div>
+              <div class="row justify-content-center">
+                  <div class="col-xl-8 col-lg-10">
 
-                <div class="row justify-content-center">
-                    <div class="col-xl-10">
-                        <div class="slider-dashboard">
-                            <div class="dashboard-active">
-                              <?php foreach (  $settings['slider_list'] as $slider ): ?>
-                                <div class="single-dashboard">
-                                    <a href="<?php echo $slider['url'] ?>"><img src="<?php echo $slider['image']['url'] ?>" alt="img"></a>
-                                </div>
-                              <?php endforeach; ?>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="slider-search-form">
+                      <form role="search" method="get" class="search-form" action="<?php echo home_url( '/' ); ?>">
+                          <span class="screen-reader-text"><?php echo _x( 'Search for:', 'label' ) ?></span>
+                          <input type="search" class="search-field" placeholder="Search Your Products..." value="<?php echo esc_attr( get_search_query() ); ?>" name="s" title="<?php echo esc_attr_x( 'Search for:', 'label' ); ?>" />
+                        <?php
+                          $makplus_cat_dropdown_args = array(
+                              'show_option_all' => __( 'Any Category' ),
+                              'taxonomy' => 'product_cat',
+                              'class' => 'selected',
+                            );
+                          wp_dropdown_categories( $makplus_cat_dropdown_args );
+                        ?>
+                        <button type="submit" ><?php echo esc_html__( 'Search Now', 'makplus' ) ?></button>
+                        <input type="hidden" name="post_type" value="product" />
+                      </form>
+                      
+                      </div>
+                  </div>
+              </div>
+
+              <div class="row justify-content-center">
+
+                <div class="col-xl-10">
+                  <div class="slider-dashboard position-relative">
+                    <?php foreach (  $settings['slider_list'] as $index => $slider ): ?>
+                      <div data-card="<?php echo $index ?>" class="single-dashboard-card"><img src="<?php echo $slider['image']['url'] ?>" alt="img"></div>
+                    <?php endforeach; ?>
+                  </div>
+
                 </div>
-            </div>
-        </section>
-      
+              </div>
+          </div>
+      </section>
       <?php
    }
 }
