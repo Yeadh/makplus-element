@@ -70,7 +70,7 @@ class makplus_Widget_Blog extends Widget_Base {
               <div class="col-lg-4 col-md-6">
                 <div class="single-blog-post mb-30">
                     <div class="blog-thumb">
-                        <a href="<?php the_permalink() ?>"><img src="<?php echo get_the_post_thumbnail_url( get_the_ID(),'makplus-404x279'); ?>" alt="<?php the_title() ?>"></a>
+                        <a href="<?php the_permalink() ?>"><img src="<?php echo get_the_post_thumbnail_url( get_the_ID(),'makplus-404x297'); ?>" alt="<?php the_title() ?>"></a>
                     </div>
                     <div class="blog-content">
                         <div class="blog-meta">
