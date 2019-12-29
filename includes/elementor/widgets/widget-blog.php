@@ -78,10 +78,10 @@ class makplus_Widget_Blog extends Widget_Base {
                                 <li><i class="far fa-clock"></i> <?php echo get_the_date() ?></li>
                                 <li><i class="far fa-comments"></i> <?php comments_number( 'No Comments', 'One Comment', '% Comments' ); ?></li>
                             </ul>
-                        </div>
+                        </div> 
                         <h4><a href="<?php the_permalink() ?>"><?php the_title() ?></a></h4>
                         <p><?php echo wp_trim_words( get_the_content(), 16, '.' ); ?></p>
-                        <div class="blog-read-more text-center">
+                        <div class="blog-read-more">
                             <a href="<?php the_permalink(); ?>"><?php echo esc_html__( 'Read More', 'makplus' ); ?></a>
                         </div>
                     </div>
