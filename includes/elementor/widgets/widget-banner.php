@@ -60,40 +60,7 @@ class makplus_Widget_Banner extends Widget_Base {
             'default' => __('Most powerful, & customizable template for Easy Digital Downloads Products','makplus')
          ]
       );
-
-      $slider = new \Elementor\Repeater();
-
-      $slider->add_control(
-         'image',
-         [
-            'label' => __( 'Choose Photo', 'makplus' ),
-            'type' => \Elementor\Controls_Manager::MEDIA,
-            'default' => [
-               'url' => get_template_directory_uri().'/images/slider_dashboard01.jpg'
-            ],
-         ]
-      );
-
-      $slider->add_control(
-         'url',
-         [
-            'label' => __( 'URL', 'makplus' ),
-            'type' => \Elementor\Controls_Manager::TEXT,
-            'default' => '#'
-
-         ]
-      );
-
-
-      $this->add_control(
-         'slider_list',
-         [
-            'label' => __( 'Slider', 'makplus' ),
-            'type' => \Elementor\Controls_Manager::REPEATER,
-            'fields' => $slider->get_controls()
-
-         ]
-      );
+      
 
       $this->end_controls_section();
 
@@ -136,7 +103,7 @@ class makplus_Widget_Banner extends Widget_Base {
                       </div>
                   </div>
               </div>
-              
+
           </div>
       </section>
       <?php
