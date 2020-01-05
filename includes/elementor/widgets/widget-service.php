@@ -32,19 +32,6 @@ class makplus_Widget_Service extends Widget_Base {
       );
 
       $this->add_control(
-         'style',
-         [
-            'label' => __( 'Service Style', 'makplus' ),
-            'type' => \Elementor\Controls_Manager::SELECT,
-            'default' => 'style1',
-            'options' => [
-               'style1'  => __( 'Style 1', 'makplus' ),
-               'style2' => __( 'Style 2', 'makplus' ),
-            ],
-         ]
-      );
-
-      $this->add_control(
          'icon',
          [
             'label' => __( 'Icon', 'makplus' ),
@@ -73,35 +60,14 @@ class makplus_Widget_Service extends Widget_Base {
          ]
       );
 
-      $this->add_control(
-         'button',
-         [
-            'label' => __( 'Title', 'makplus' ),
-            'type' => \Elementor\Controls_Manager::TEXT,
-            'default' => __('Learn More','makplus'),
-            'condition' => ['style' => 'style1']
-         ]
-      );
-
-      $this->add_control(
-         'url',
-         [
-            'label' => __( 'Title', 'makplus' ),
-            'type' => \Elementor\Controls_Manager::TEXT,
-            'default' => '#',
-            'condition' => ['style' => 'style1']
-         ]
-      );
-
       $this->end_controls_section();
    }
    protected function render( $instance = [] ) {
  
       // get our input from the widget settings.
        
-      $settings = $this->get_settings_for_display();
+      $settings = $this->get_settings_for_display(); ?>
 
-      if ( $settings['style'] == 'style1' ){ ?>
       <div class="single-services mb-50">
           <div class="services-icon mb-30">
               <?php echo wp_get_attachment_image( $settings['icon']['id'],'full'); ?>
@@ -109,24 +75,8 @@ class makplus_Widget_Service extends Widget_Base {
           <div class="services-content">
               <h4><?php echo esc_html($settings['title']); ?></h4>
               <p><?php echo esc_html($settings['text']); ?></p>
-              <a href="<?php echo esc_url($settings['url']); ?>" class="btn"><?php echo esc_html($settings['button']); ?><i class="fas fa-long-arrow-alt-right"></i></a>
           </div>
-      </div>
-
-      <?php } elseif( $settings['style'] == 'style2' ) { ?>
-      
-      <div class="single-customize-step">
-          <div class="customize-icon">
-              <?php echo wp_get_attachment_image( $settings['icon']['id'],'full'); ?>
-          </div>
-          <div class="customize-content">
-            <h4><?php echo esc_html($settings['title']); ?></h4>
-            <p><?php echo esc_html($settings['text']); ?></p>
-          </div>
-      </div>
-
-      <?php } ?>
-      
+      </div>   
 
       <?php
    }
