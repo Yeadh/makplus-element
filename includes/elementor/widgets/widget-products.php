@@ -29,22 +29,7 @@ class makplus_Widget_Product extends Widget_Base {
             'type' => Controls_Manager::SECTION,
          ]
       );
-
-      $this->add_control(
-         'style',
-         [
-            'label' => __( 'Service Style', 'makplus' ),
-            'type' => \Elementor\Controls_Manager::SELECT,
-            'default' => 'style1',
-            'options' => [
-               'style1'  => __( 'Style 1', 'makplus' ),
-               'style2' => __( 'Style 2', 'makplus' ),
-               'style3' => __( 'Style 3', 'makplus' ),
-            ],
-         ]
-      );
-
-
+      
       $this->add_control(
          'ppp',
          [
@@ -82,7 +67,7 @@ class makplus_Widget_Product extends Widget_Base {
 
       <div class="row justify-content-center">
         <div class="text-center">
-          <div class="product-menu <?php if ( $settings['style'] == 'style2' or $settings['style'] == 'style3' ){ echo 's-product-menu'; } ?> mb-60">
+          <div class="product-menu s-product-menu mb-60">
             <button class="active" data-filter="*">All Items</button>
             <?php  $product_menu_terms = get_terms( array(
                'taxonomy' => 'product_cat',
@@ -106,41 +91,8 @@ class makplus_Widget_Product extends Widget_Base {
          /* Start the Loop */
         global $product;
         while ( $products->have_posts() ) : $products->the_post();
-        $product_terms = get_the_terms( get_the_ID() , 'product_cat' ); ?>
-
-        <?php if ( $settings['style'] == 'style1' ){?>
-
-        <div class="col-xl-3 col-lg-4 col-md-6 grid-item <?php foreach ($product_terms as $portfolio_term) { echo esc_attr( $portfolio_term->slug ); } ?>">
-            <div class="single-product-item mb-30">
-                <div class="product-img">
-                    <a href="<?php the_permalink() ?>"><?php the_post_thumbnail('makplus-500x386') ?></a>
-                </div>
-                <div class="product-overlay">
-                    <h5><a href="<?php the_permalink() ?>"><?php the_title() ?></a></h5>
-                    <span><?php echo get_woocommerce_currency_symbol().get_post_meta( get_the_ID(), '_regular_price', true ); ?></span>
-                </div>
-            </div>
-        </div>
-
-        <?php } elseif ( $settings['style'] == 'style2' ){ ?>
-
-        <div class="col-xl-3 col-lg-4 col-md-6 grid-item <?php foreach ($product_terms as $portfolio_term) { echo esc_attr( $portfolio_term->slug ); } ?>">
-            <div class="single-product-item s-single-product-item mb-30">
-                <div class="product-img">
-                    <a href="<?php the_permalink() ?>"><?php the_post_thumbnail('makplus-297x306') ?></a>
-                </div>
-                <div class="product-action">
-                    <a href="<?php echo do_shortcode('[add_to_cart_url id="'.get_the_ID().'"]'); ?>" class="btn"><i class="far fa-eye"></i><?php echo esc_html__( 'Add to cart','makplus' ) ?></a>
-                    <a href="<?php echo esc_url(get_post_meta( get_the_ID(), 'makplus_live_preview', 1 )) ?>" class="btn"><i class="far fa-eye"></i><?php echo esc_html__( 'Demo','makplus' ) ?></a>
-                </div>
-                <div class="product-overlay">
-                    <h5><a href="<?php the_permalink() ?>"><?php the_title() ?></a></h5>
-                    <span><?php echo get_woocommerce_currency_symbol().get_post_meta( get_the_ID(), '_regular_price', true ); ?></span>
-                </div>
-            </div>
-        </div>
-
-        <?php } elseif ( $settings['style'] == 'style3' ){ 
+        $product_terms = get_the_terms( get_the_ID() , 'product_cat' );
+        
         global $product;?>
 
         <div class="col-lg-4 col-md-6 grid-item <?php foreach ($product_terms as $portfolio_term) { echo esc_attr( $portfolio_term->slug ); } ?>">
@@ -159,8 +111,6 @@ class makplus_Widget_Product extends Widget_Base {
                 </div>
             </div>
         </div>
-
-        <?php } ?>
 
         <?php endwhile; wp_reset_postdata(); ?>
       </div>
