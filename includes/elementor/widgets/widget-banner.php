@@ -136,18 +136,7 @@ class makplus_Widget_Banner extends Widget_Base {
                       </div>
                   </div>
               </div>
-
-              <div class="row justify-content-center">
-
-                <div class="col-xl-10">
-                  <div class="slider-dashboard position-relative">
-                    <?php foreach (  $settings['slider_list'] as $index => $slider ): ?>
-                      <div data-card="<?php echo $index ?>" class="single-dashboard-card"><img src="<?php echo $slider['image']['url'] ?>" alt="img"></div>
-                    <?php endforeach; ?>
-                  </div>
-
-                </div>
-              </div>
+              
           </div>
       </section>
       <?php
