@@ -120,7 +120,7 @@ class makplus_Widget_Banner extends Widget_Base {
                       </form>
 
                         <div class="text-center">
-                          <p class="text-white"><?php echo  esc_html($settings['total_prod']).esc_html__( ' Total Products', 'makplus' ) ?> | <?php echo esc_html($settings['total_cust']).esc_html__( ' Happy Customars', 'makplus' ) ?></p>
+                          <p class="text-white"><?php echo  esc_html($settings['total_prod']).esc_html__( ' Total Products', 'makplus' ) ?><span class="mr-3 ml-3">|</span><?php echo esc_html($settings['total_cust']).esc_html__( ' Happy Customars', 'makplus' ) ?></p>
                         </div>
 
                       </div>
