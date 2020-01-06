@@ -74,7 +74,7 @@ class makplus_Widget_Blog extends Widget_Base {
                     </div>
                     <div class="blog-meta">
                       <ul>
-                          <li><?php echo esc_html__( 'By - ','makplus' ) ?><?php the_author(); ?></li>
+                          <li><span><?php echo esc_html__( 'By ','makplus' ) ?></span>- <?php the_author(); ?></li>
                           <li><?php echo get_the_date() ?></li>
                           <li><?php comments_number( 'No Comments', 'One Comment', '% Comments' ); ?></li>
                       </ul>
@@ -82,7 +82,7 @@ class makplus_Widget_Blog extends Widget_Base {
                     <div class="blog-content">
 
                         <h4><a href="<?php the_permalink() ?>"><?php the_title() ?></a></h4>                        
-                        <p><?php echo wp_trim_words( get_the_content(), 16, '.' ); ?></p>
+                        <p><?php echo wp_trim_words( get_the_content(), 10, '.' ); ?></p>
                     </div>
                 </div>
               </div>
