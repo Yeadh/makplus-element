@@ -99,7 +99,11 @@ class makplus_Widget_Banner extends Widget_Base {
                         <button type="submit" ><?php echo esc_html__( 'Search Now', 'makplus' ) ?></button>
                         <input type="hidden" name="post_type" value="product" />
                       </form>
-                      
+
+                        <div class="text-center">
+                          <p class="text-white"><?php echo  esc_html('23233').esc_html__( ' Total Products', 'makplus' ) ?> | <?php echo esc_html('23233').esc_html__( ' Happy Customars', 'makplus' ) ?></p>
+                        </div>
+
                       </div>
                   </div>
               </div>

@@ -96,20 +96,27 @@ class makplus_Widget_Product extends Widget_Base {
         global $product;?>
 
         <div class="col-lg-4 col-md-6 grid-item <?php foreach ($product_terms as $portfolio_term) { echo esc_attr( $portfolio_term->slug ); } ?>">
-            <div class="single-product-item t-single-product-item mb-30">
-                <div class="product-img">
-                    <a href="<?php the_permalink() ?>"><?php the_post_thumbnail('makplus-403x260') ?></a>
-                </div>
-                <div class="t-product-overlay">
-                    <h5><a href="<?php the_permalink() ?>"><?php the_title() ?></a></h5>
-                    <span><?php echo esc_html( get_post_meta( get_the_ID(), 'makplus_sub_title', 1 ) ) ?></span>
-                    <p> <?php echo $product->get_total_sales(); ?> Sales</p>
-                    <div class="t-product-meta">
-                        <?php woocommerce_template_loop_rating(); ?>
-                        <h6><?php echo get_woocommerce_currency_symbol().get_post_meta( get_the_ID(), '_regular_price', true ); ?></h6>
-                    </div>
-                </div>
-            </div>
+          <div class="single-product t-single-product mb-30">
+              <div class="product-img">
+                  <a href="<?php the_permalink() ?>"><?php the_post_thumbnail('makplus-403x260') ?></a>
+              </div>
+              <div class="t-product-content">
+                  <div class="t-product-rating">
+                      <?php woocommerce_template_loop_rating(); ?>
+                  </div>
+                  <h5><a href="<?php the_permalink() ?>"><?php the_title() ?></h5>
+                  <div class="t-product-meta">
+                      <ul>
+                          <li><?php esc_html_e( 'By', 'makplus' ) ?> <a href="#">Business-theme :</a></li>
+                          <li class="product-cat"><a href="#">Wordpress</a></li>
+                      </ul>
+                  </div>
+                  <div class="t-product-bottom">
+                      <h6><?php esc_html_e( 'Price', 'makplus' ) ?> : <span><?php echo get_woocommerce_currency_symbol().get_post_meta( get_the_ID(), '_regular_price', true ); ?></span></h6>
+                      <a href="#" class="product-cart"><i class="fas fa-shopping-basket"></i></a>
+                  </div>
+              </div>
+          </div>
         </div>
 
         <?php endwhile; wp_reset_postdata(); ?>
