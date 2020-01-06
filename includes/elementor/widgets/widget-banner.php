@@ -90,7 +90,7 @@ class makplus_Widget_Banner extends Widget_Base {
     // get our input from the widget settings.       
     $settings = $this->get_settings_for_display(); ?>
 
-    <section class="slider-area slider-bg" style="background-image: url(<?php echo esc_url($settings['banner_image']['url']) ?>)">
+    <section class="slider-area slider-bg position-relative" style="background-image: url(<?php echo esc_url($settings['banner_image']['url']) ?>)">
           <div class="container">
               <div class="row justify-content-center">
                   <div class="col-xl-7 col-lg-10">
@@ -128,6 +128,15 @@ class makplus_Widget_Banner extends Widget_Base {
               </div>
 
           </div>
+          <div class="banner-icon-shape bis-1"><img src="<?php echo get_template_directory_uri() ?>/images/banner_icon01.png" alt="img"></div>
+          <div class="banner-icon-shape bis-2"><img src="<?php echo get_template_directory_uri() ?>/images/banner_icon02.png" alt="img"></div>
+          <div class="banner-icon-shape bis-3"><img src="<?php echo get_template_directory_uri() ?>/images/banner_icon03.png" alt="img"></div>
+          <div class="banner-icon-shape bis-4"><img src="<?php echo get_template_directory_uri() ?>/images/banner_icon04.png" alt="img"></div>
+          <div class="banner-icon-shape bis-5"><img src="<?php echo get_template_directory_uri() ?>/images/banner_icon05.png" alt="img"></div>
+          <div class="banner-icon-shape bis-6"><img src="<?php echo get_template_directory_uri() ?>/images/banner_icon06.png" alt="img"></div>
+          <div class="banner-icon-shape bis-7"><img src="<?php echo get_template_directory_uri() ?>/images/banner_icon07.png" alt="img"></div>
+          <div class="banner-icon-shape bis-8"><img src="<?php echo get_template_directory_uri() ?>/images/banner_icon08.png" alt="img"></div>
+
       </section>
       <?php
    }
