@@ -60,6 +60,25 @@ class makplus_Widget_Banner extends Widget_Base {
             'default' => __('Most powerful, & customizable template for Easy Digital Downloads Products','makplus')
          ]
       );
+
+
+      $this->add_control(
+         'total_prod',
+         [
+            'label' => __( 'Total products', 'makplus' ),
+            'type' => \Elementor\Controls_Manager::TEXT,
+            'default' => '1234',
+         ]
+      );
+
+      $this->add_control(
+         'total_cust',
+         [
+            'label' => __( 'Total customars', 'makplus' ),
+            'type' => \Elementor\Controls_Manager::TEXT,
+            'default' => '1234',
+         ]
+      );
       
 
       $this->end_controls_section();
@@ -101,7 +120,7 @@ class makplus_Widget_Banner extends Widget_Base {
                       </form>
 
                         <div class="text-center">
-                          <p class="text-white"><?php echo  esc_html('23233').esc_html__( ' Total Products', 'makplus' ) ?> | <?php echo esc_html('23233').esc_html__( ' Happy Customars', 'makplus' ) ?></p>
+                          <p class="text-white"><?php echo  esc_html($total_prod).esc_html__( ' Total Products', 'makplus' ) ?> | <?php echo esc_html($total_cust).esc_html__( ' Happy Customars', 'makplus' ) ?></p>
                         </div>
 
                       </div>

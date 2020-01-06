@@ -107,13 +107,13 @@ class makplus_Widget_Product extends Widget_Base {
                   <h5><a href="<?php the_permalink() ?>"><?php the_title() ?></h5>
                   <div class="t-product-meta">
                       <ul>
-                          <li><?php esc_html_e( 'By', 'makplus' ) ?> <a href="#">Business-theme :</a></li>
-                          <li class="product-cat"><a href="#">Wordpress</a></li>
+                          <li><?php esc_html_e( 'By', 'makplus' ) ?> <a href="<?php echo dokan_get_store_url(get_the_author_meta('ID')) ?>"><?php echo get_the_author() ?> :</a></li>
+                          <li class="product-cat"><?php echo $product->get_categories(); ?></li>
                       </ul>
                   </div>
                   <div class="t-product-bottom">
                       <h6><?php esc_html_e( 'Price', 'makplus' ) ?> : <span><?php echo get_woocommerce_currency_symbol().get_post_meta( get_the_ID(), '_regular_price', true ); ?></span></h6>
-                      <a href="#" class="product-cart"><i class="fas fa-shopping-basket"></i></a>
+                      <a href="<?php echo do_shortcode('[add_to_cart_url id="'.get_the_ID().'"]'); ?>" class="product-cart"><i class="fas fa-shopping-basket"></i></a>
                   </div>
               </div>
           </div>
