@@ -58,9 +58,10 @@ class makplus_Widget_free extends Widget_Base {
       ));
    
       global $product;?>
-      
+
     <div class="row">
-    <?php while ( $products->have_posts() ) : $products->the_post(); ?>
+    <?php while ( $products->have_posts() ) : $products->the_post(); 
+      global $product;?>
 
        <div class="col-lg-4 col-md-6">
           <div class="single-product t-single-product mb-30">
