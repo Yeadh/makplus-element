@@ -74,7 +74,7 @@ class makplus_Widget_Blog extends Widget_Base {
                     </div>
                     <div class="blog-meta">
                       <ul>
-                          <li><span><?php echo esc_html__( 'By ','makplus' ) ?></span>- <?php the_author(); ?></li>
+                          <li><span><?php echo esc_html__( 'By ','makplus' ) ?></span>- <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php the_author(); ?></a></li>
                           <li><?php echo get_the_date() ?></li>
                           <li><?php comments_number( 'No Comments', 'One Comment', '% Comments' ); ?></li>
                       </ul>
