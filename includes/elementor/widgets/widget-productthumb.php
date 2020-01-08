@@ -82,27 +82,24 @@ class makplus_Widget_Product_Thumb extends Widget_Base {
                 <a href="<?php the_permalink() ?>">
                   <img src="<?php echo esc_url( get_post_meta( get_the_ID(), 'makplus_thumb', 1 ), 'makplus-120x120' ); ?>">
                 </a>
-                <div class="single-product t-single-product tooltip-wrap">
-                  <div class="product-img">
-                      <a href="<?php the_permalink() ?>"><?php the_post_thumbnail('makplus-403x260') ?></a>
-                  </div>
-                  <div class="t-product-content">
-                      <div class="t-product-rating">
-                          <?php woocommerce_template_loop_rating(); ?>
-                      </div>
-                      <h5><a href="<?php the_permalink() ?>"><?php the_title() ?></h5>
-                      <div class="t-product-meta">
-                          <ul>
-                              <li><?php esc_html_e( 'By', 'makplus' ) ?> <a href="<?php echo dokan_get_store_url(get_the_author_meta('ID')) ?>"><?php echo get_the_author() ?> :</a></li>
-                              <li class="product-cat"><?php echo $product->get_categories(); ?></li>
-                          </ul>
-                      </div>
-                      <div class="t-product-bottom">
-                          <h6><?php esc_html_e( 'Price', 'makplus' ) ?> : <span><?php echo get_woocommerce_currency_symbol().get_post_meta( get_the_ID(), '_regular_price', true ); ?></span></h6>
-                          <a href="<?php echo do_shortcode('[add_to_cart_url id="'.get_the_ID().'"]'); ?>" class="product-cart"><i class="fas fa-shopping-basket"></i></a>
-                      </div>
-                  </div>
-              </div>
+                <div class="tooltip-wrap">
+                    <div class="tooltip-thumb">
+                         <a href="<?php the_permalink() ?>"><?php the_post_thumbnail('makplus-325x170') ?></a>
+                    </div>
+                    <div class="tooltip-content">
+                        <div class="tooltip-product-info">
+                            <h4><a href="<?php the_permalink() ?>"><?php the_title() ?></a></h4>
+                            <?php echo $product->get_categories(); ?>
+                        </div>
+                        <div class="tooltip-product-price">
+                            <h5><?php echo get_woocommerce_currency_symbol().get_post_meta( get_the_ID(), '_regular_price', true ); ?></h5>
+                            <span><?php echo $product->get_total_sales(); ?> Sales</span>
+                        </div>
+                        <div class="tooltip-rating text-center">
+                            <?php woocommerce_template_loop_rating(); ?>
+                        </div>
+                    </div>
+                </div>
               </div>
             </div>
           <?php endwhile; wp_reset_postdata(); ?>

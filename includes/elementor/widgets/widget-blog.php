@@ -72,17 +72,27 @@ class makplus_Widget_Blog extends Widget_Base {
                     <div class="blog-thumb">
                         <a href="<?php the_permalink() ?>"><img src="<?php echo get_the_post_thumbnail_url( get_the_ID(),'makplus-404x297'); ?>" alt="<?php the_title() ?>"></a>
                     </div>
-                    <div class="blog-meta">
-                      <ul>
-                          <li><span><?php echo esc_html__( 'By ','makplus' ) ?></span>- <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php the_author(); ?></a></li>
-                          <li><?php echo get_the_date() ?></li>
-                          <li><?php comments_number( 'No Comments', 'One Comment', '% Comments' ); ?></li>
-                      </ul>
-                    </div>
-                    <div class="blog-content">
-
-                        <h4><a href="<?php the_permalink() ?>"><?php the_title() ?></a></h4>                        
-                        <p><?php echo wp_trim_words( get_the_content(), 10, '.' ); ?></p>
+                    <div class="blog-content"> 
+                        <h4><a href="<?php the_permalink() ?>"><?php the_title() ?></a></h4>
+                        <div class="blog-meta">
+                          <ul>
+                              <li><i class="far fa-calendar-alt"></i> <?php echo get_the_date() ?></li>
+                          </ul>
+                        </div>
+                        <p><?php echo wp_trim_words( get_the_content(), 16, '.' ); ?></p>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="blog-read-more">
+                                <a href="<?php the_permalink(); ?>"><?php echo esc_html__( 'Read More', 'makplus' ); ?></a>
+                            </div>
+                          </div>
+                          <div class="col-md-6 text-right">
+                            <div class="inner-blog-share mt-10">
+                                <a href="#"><i class="fas fa-share-alt"></i></a>
+                                <?php echo makplus_social_sharing(); ?>
+                            </div>
+                          </div>
+                        </div>
                     </div>
                 </div>
               </div>

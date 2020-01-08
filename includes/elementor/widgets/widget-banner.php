@@ -61,25 +61,39 @@ class makplus_Widget_Banner extends Widget_Base {
          ]
       );
 
+      $slider = new \Elementor\Repeater();
 
-      $this->add_control(
-         'total_prod',
+      $slider->add_control(
+         'image',
          [
-            'label' => __( 'Total products', 'makplus' ),
-            'type' => \Elementor\Controls_Manager::TEXT,
-            'default' => '1234',
+            'label' => __( 'Choose Photo', 'makplus' ),
+            'type' => \Elementor\Controls_Manager::MEDIA,
+            'default' => [
+               'url' => get_template_directory_uri().'/images/slider_dashboard01.jpg'
+            ],
          ]
       );
 
-      $this->add_control(
-         'total_cust',
+      $slider->add_control(
+         'url',
          [
-            'label' => __( 'Total customars', 'makplus' ),
+            'label' => __( 'URL', 'makplus' ),
             'type' => \Elementor\Controls_Manager::TEXT,
-            'default' => '1234',
+            'default' => '#'
+
          ]
       );
-      
+
+
+      $this->add_control(
+         'slider_list',
+         [
+            'label' => __( 'Slider', 'makplus' ),
+            'type' => \Elementor\Controls_Manager::REPEATER,
+            'fields' => $slider->get_controls()
+
+         ]
+      );
 
       $this->end_controls_section();
 
@@ -90,7 +104,7 @@ class makplus_Widget_Banner extends Widget_Base {
     // get our input from the widget settings.       
     $settings = $this->get_settings_for_display(); ?>
 
-    <section class="slider-area slider-bg position-relative" style="background-image: url(<?php echo esc_url($settings['banner_image']['url']) ?>)">
+    <section class="slider-area slider-bg" style="background-image: url(<?php echo esc_url($settings['banner_image']['url']) ?>)">
           <div class="container">
               <div class="row justify-content-center">
                   <div class="col-xl-7 col-lg-10">
@@ -118,25 +132,23 @@ class makplus_Widget_Banner extends Widget_Base {
                         <button type="submit" ><?php echo esc_html__( 'Search Now', 'makplus' ) ?></button>
                         <input type="hidden" name="post_type" value="product" />
                       </form>
-
-                        <div class="text-center">
-                          <p class="text-white"><?php echo  esc_html($settings['total_prod']).esc_html__( ' Total Products', 'makplus' ) ?><span class="mr-3 ml-3">|</span><?php echo esc_html($settings['total_cust']).esc_html__( ' Happy Customars', 'makplus' ) ?></p>
-                        </div>
-
+                      
                       </div>
                   </div>
               </div>
 
-          </div>
-          <div class="banner-icon-shape bis-1"><img src="<?php echo get_template_directory_uri() ?>/images/banner_icon01.png" alt="img"></div>
-          <div class="banner-icon-shape bis-2"><img src="<?php echo get_template_directory_uri() ?>/images/banner_icon02.png" alt="img"></div>
-          <div class="banner-icon-shape bis-3"><img src="<?php echo get_template_directory_uri() ?>/images/banner_icon03.png" alt="img"></div>
-          <div class="banner-icon-shape bis-4"><img src="<?php echo get_template_directory_uri() ?>/images/banner_icon04.png" alt="img"></div>
-          <div class="banner-icon-shape bis-5"><img src="<?php echo get_template_directory_uri() ?>/images/banner_icon05.png" alt="img"></div>
-          <div class="banner-icon-shape bis-6"><img src="<?php echo get_template_directory_uri() ?>/images/banner_icon06.png" alt="img"></div>
-          <div class="banner-icon-shape bis-7"><img src="<?php echo get_template_directory_uri() ?>/images/banner_icon07.png" alt="img"></div>
-          <div class="banner-icon-shape bis-8"><img src="<?php echo get_template_directory_uri() ?>/images/banner_icon08.png" alt="img"></div>
+              <div class="row justify-content-center">
 
+                <div class="col-xl-10">
+                  <div class="slider-dashboard position-relative">
+                    <?php foreach (  $settings['slider_list'] as $index => $slider ): ?>
+                      <div data-card="<?php echo $index ?>" class="single-dashboard-card"><img src="<?php echo $slider['image']['url'] ?>" alt="img"></div>
+                    <?php endforeach; ?>
+                  </div>
+
+                </div>
+              </div>
+          </div>
       </section>
       <?php
    }

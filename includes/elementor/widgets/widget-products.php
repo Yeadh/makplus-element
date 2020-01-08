@@ -29,7 +29,22 @@ class makplus_Widget_Product extends Widget_Base {
             'type' => Controls_Manager::SECTION,
          ]
       );
-      
+
+      $this->add_control(
+         'style',
+         [
+            'label' => __( 'Service Style', 'makplus' ),
+            'type' => \Elementor\Controls_Manager::SELECT,
+            'default' => 'style1',
+            'options' => [
+               'style1'  => __( 'Style 1', 'makplus' ),
+               'style2' => __( 'Style 2', 'makplus' ),
+               'style3' => __( 'Style 3', 'makplus' ),
+            ],
+         ]
+      );
+
+
       $this->add_control(
          'ppp',
          [
@@ -67,7 +82,7 @@ class makplus_Widget_Product extends Widget_Base {
 
       <div class="row justify-content-center">
         <div class="text-center">
-          <div class="product-menu s-product-menu mb-60">
+          <div class="product-menu <?php if ( $settings['style'] == 'style2' or $settings['style'] == 'style3' ){ echo 's-product-menu'; } ?> mb-60">
             <button class="active" data-filter="*">All Items</button>
             <?php  $product_menu_terms = get_terms( array(
                'taxonomy' => 'product_cat',
@@ -91,33 +106,61 @@ class makplus_Widget_Product extends Widget_Base {
          /* Start the Loop */
         global $product;
         while ( $products->have_posts() ) : $products->the_post();
-        $product_terms = get_the_terms( get_the_ID() , 'product_cat' );
-        
+        $product_terms = get_the_terms( get_the_ID() , 'product_cat' ); ?>
+
+        <?php if ( $settings['style'] == 'style1' ){?>
+
+        <div class="col-xl-3 col-lg-4 col-md-6 grid-item <?php foreach ($product_terms as $portfolio_term) { echo esc_attr( $portfolio_term->slug ); } ?>">
+            <div class="single-product-item mb-30">
+                <div class="product-img">
+                    <a href="<?php the_permalink() ?>"><?php the_post_thumbnail('makplus-500x386') ?></a>
+                </div>
+                <div class="product-overlay">
+                    <h5><a href="<?php the_permalink() ?>"><?php the_title() ?></a></h5>
+                    <span><?php echo get_woocommerce_currency_symbol().get_post_meta( get_the_ID(), '_regular_price', true ); ?></span>
+                </div>
+            </div>
+        </div>
+
+        <?php } elseif ( $settings['style'] == 'style2' ){ ?>
+
+        <div class="col-xl-3 col-lg-4 col-md-6 grid-item <?php foreach ($product_terms as $portfolio_term) { echo esc_attr( $portfolio_term->slug ); } ?>">
+            <div class="single-product-item s-single-product-item mb-30">
+                <div class="product-img">
+                    <a href="<?php the_permalink() ?>"><?php the_post_thumbnail('makplus-297x306') ?></a>
+                </div>
+                <div class="product-action">
+                    <a href="<?php echo do_shortcode('[add_to_cart_url id="'.get_the_ID().'"]'); ?>" class="btn"><i class="far fa-eye"></i><?php echo esc_html__( 'Add to cart','makplus' ) ?></a>
+                    <a href="<?php echo esc_url(get_post_meta( get_the_ID(), 'makplus_live_preview', 1 )) ?>" class="btn"><i class="far fa-eye"></i><?php echo esc_html__( 'Demo','makplus' ) ?></a>
+                </div>
+                <div class="product-overlay">
+                    <h5><a href="<?php the_permalink() ?>"><?php the_title() ?></a></h5>
+                    <span><?php echo get_woocommerce_currency_symbol().get_post_meta( get_the_ID(), '_regular_price', true ); ?></span>
+                </div>
+            </div>
+        </div>
+
+        <?php } elseif ( $settings['style'] == 'style3' ){ 
         global $product;?>
 
         <div class="col-lg-4 col-md-6 grid-item <?php foreach ($product_terms as $portfolio_term) { echo esc_attr( $portfolio_term->slug ); } ?>">
-          <div class="single-product t-single-product mb-30">
-              <div class="product-img">
-                  <a href="<?php the_permalink() ?>"><?php the_post_thumbnail('makplus-403x260') ?></a>
-              </div>
-              <div class="t-product-content">
-                  <div class="t-product-rating">
-                      <?php woocommerce_template_loop_rating(); ?>
-                  </div>
-                  <h5><a href="<?php the_permalink() ?>"><?php the_title() ?></h5>
-                  <div class="t-product-meta">
-                      <ul>
-                          <li><?php esc_html_e( 'By', 'makplus' ) ?> <a href="<?php echo dokan_get_store_url(get_the_author_meta('ID')) ?>"><?php echo get_the_author() ?> :</a></li>
-                          <li class="product-cat"><?php echo $product->get_categories(); ?></li>
-                      </ul>
-                  </div>
-                  <div class="t-product-bottom">
-                      <h6><?php esc_html_e( 'Price', 'makplus' ) ?> : <span><?php echo get_woocommerce_currency_symbol().get_post_meta( get_the_ID(), '_regular_price', true ); ?></span></h6>
-                      <a href="<?php echo do_shortcode('[add_to_cart_url id="'.get_the_ID().'"]'); ?>" class="product-cart"><i class="fas fa-shopping-basket"></i></a>
-                  </div>
-              </div>
-          </div>
+            <div class="single-product-item t-single-product-item mb-30">
+                <div class="product-img">
+                    <a href="<?php the_permalink() ?>"><?php the_post_thumbnail('makplus-351x420') ?></a>
+                </div>
+                <div class="t-product-overlay">
+                    <h5><a href="<?php the_permalink() ?>"><?php the_title() ?></a></h5>
+                    <span><?php echo esc_html( get_post_meta( get_the_ID(), 'makplus_sub_title', 1 ) ) ?></span>
+                    <p> <?php echo $product->get_total_sales(); ?> Sales</p>
+                    <div class="t-product-meta">
+                        <?php woocommerce_template_loop_rating(); ?>
+                        <h6><?php echo get_woocommerce_currency_symbol().get_post_meta( get_the_ID(), '_regular_price', true ); ?></h6>
+                    </div>
+                </div>
+            </div>
         </div>
+
+        <?php } ?>
 
         <?php endwhile; wp_reset_postdata(); ?>
       </div>

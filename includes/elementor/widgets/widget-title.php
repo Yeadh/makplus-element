@@ -39,15 +39,7 @@ class makplus_Widget_Title extends Widget_Base {
          [
             'label' => __( 'Title', 'makplus' ),
             'type' => \Elementor\Controls_Manager::TEXT,
-            'default' => __('THE TITLE','makplus')
-         ]
-      );
-      $this->add_control(
-         'color-title',
-         [
-            'label' => __( 'Color title', 'makplus' ),
-            'type' => \Elementor\Controls_Manager::TEXT,
-            'default' => __('COLORED','makplus')
+            'default' => __('Awesome Customer Service With Our Tools.','makplus')
          ]
       );
 
@@ -111,16 +103,9 @@ class makplus_Widget_Title extends Widget_Base {
       $this->add_inline_editing_attributes( 'sub-title', 'basic' );
       
       ?>
-      <div class="row justify-content-center">
-         <div class="col-lg-2"></div>
-         <div class="col-lg-8">
-            <div class="section-title <?php echo esc_attr($settings['align']).' '.esc_attr($settings['white']); ?>">
-              <h2 <?php echo $this->get_render_attribute_string( 'title' ); ?>><?php echo esc_html($settings['title']); ?> <span><?php echo esc_html($settings['color-title']); ?></span></h2>
-              <div class="section-title-border"></div>
-              <p <?php echo $this->get_render_attribute_string( 'sub-title' ); ?>><?php echo esc_html($settings['sub-title']); ?></p>
-            </div>
-         </div>
-         <div class="col-lg-2"></div>
+      <div class="section-title <?php echo esc_attr($settings['align']).' '.esc_attr($settings['white']); ?>">
+        <h2 <?php echo $this->get_render_attribute_string( 'title' ); ?>><?php echo esc_html($settings['title']); ?></h2>
+        <p <?php echo $this->get_render_attribute_string( 'sub-title' ); ?>><?php echo esc_html($settings['sub-title']); ?></p>
       </div>
       <?php
    }
