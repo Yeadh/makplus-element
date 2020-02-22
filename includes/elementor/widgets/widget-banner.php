@@ -32,22 +32,12 @@ class makplus_Widget_Banner extends Widget_Base {
          ]
       );
 
-      $this->add_control(
-      'banner_image',
-        [
-          'label' => __( 'Banner image', 'makplus' ),
-          'type' => \Elementor\Controls_Manager::MEDIA,
-          'default' => [
-            'url' => get_template_directory_uri().'/images/slider_bg01.jpg',
-          ],
-        ]
-      );
 
       $this->add_control(
          'title',
          [
             'label' => __( 'Title', 'makplus' ),
-            'type' => \Elementor\Controls_Manager::TEXT,
+            'type' => \Elementor\Controls_Manager::TEXTAREA,
             'default' => __('Digital Product Marketplace Create Your Business','makplus')
          ]
       );
