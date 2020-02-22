@@ -111,36 +111,37 @@ class makplus_Widget_Testimonials extends Widget_Base {
        
       $settings = $this->get_settings_for_display(); ?>
 
-        <div class="row testimonial-active">
-          <?php foreach (  $settings['testimonial_list'] as $testimonial_single ): ?>
-          <div class="col-xl-6">
-              <div class="single-testimonial">
-                  <div class="testi-avatar text-center">
-                      <div class="t-avatar-img">
-                          <img src="<?php echo esc_url($testimonial_single['image']['url']) ?>" alt="img">
-                      </div>
-                      <div class="testi-quote">
-                          <i class="fas fa-quote-right"></i>
-                      </div>
-                  </div>
-                  <div class="testi-content">
-                      <div class="testi-rating mb-10">
-                          <?php for ($i = 1; $i <= $testimonial_single['rating']; $i++) {
-                            echo '<i class="fas fa-star"></i>';
-                          } ?>
-                      </div>
-                      <div class="t-avatar-info mb-20">
-                          <h4><?php echo esc_html($testimonial_single['name']); ?></h4>
-                          <span><?php echo esc_html($testimonial_single['designation']); ?></span>
-                      </div>
-                      <p><?php echo esc_html($testimonial_single['testimonial']); ?></p>
-                  </div>
-              </div>
-          </div>
-          <?php endforeach; ?>
-        </div>
+      <!-- testimonial start -->
+      <div class="testimonial-area pt-150 pb-150 wow fadeInUp" data-wow-delay=".2s">
 
-   <?php } 
+        <div class="row">
+            <div class="col-xl-10 offset-xl-1">
+                <div class="testimonial-active">
+                    <?php foreach (  $settings['testimonial_list'] as $testimonial_single ): ?>
+                    <div class="testimonial-item">
+                        <div class="inner-tesimonial text-center">
+                            <p><?php echo esc_html($testimonial_single['testimonial']); ?></p>
+                            <div class="testimonail-name">
+                                <h6><?php echo esc_html($testimonial_single['name']); ?></h6>
+                                <span><?php echo esc_html($testimonial_single['designation']); ?></span>
+                            </div>
+                        </div>
+                    </div>
+                    <?php endforeach; ?>
+                </div>
+                <div class="testimonial-nav">
+                  <?php foreach (  $settings['testimonial_list'] as $testimonial_single ): ?>
+                    <div class="testimonial-thumb">
+                        <img src="<?php echo esc_url($testimonial_single['image']['url']) ?>" alt="img">
+                    </div>
+                  <?php endforeach; ?>
+                </div>
+            </div>
+        </div>
+      <!-- testimonial end -->
+      
+    </div>
+   <?php }
  
 }
 

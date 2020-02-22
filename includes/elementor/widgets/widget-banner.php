@@ -51,37 +51,19 @@ class makplus_Widget_Banner extends Widget_Base {
          ]
       );
 
-      $slider = new \Elementor\Repeater();
-
-      $slider->add_control(
-         'image',
+      $this->add_control(
+         'total_products',
          [
-            'label' => __( 'Choose Photo', 'makplus' ),
-            'type' => \Elementor\Controls_Manager::MEDIA,
-            'default' => [
-               'url' => get_template_directory_uri().'/images/slider_dashboard01.jpg'
-            ],
+            'label' => __( 'Total products', 'makplus' ),
+            'type' => \Elementor\Controls_Manager::TEXT
          ]
       );
-
-      $slider->add_control(
-         'url',
-         [
-            'label' => __( 'URL', 'makplus' ),
-            'type' => \Elementor\Controls_Manager::TEXT,
-            'default' => '#'
-
-         ]
-      );
-
 
       $this->add_control(
-         'slider_list',
+         'total_customers',
          [
-            'label' => __( 'Slider', 'makplus' ),
-            'type' => \Elementor\Controls_Manager::REPEATER,
-            'fields' => $slider->get_controls()
-
+            'label' => __( 'Total customers', 'makplus' ),
+            'type' => \Elementor\Controls_Manager::TEXT
          ]
       );
 
@@ -97,7 +79,7 @@ class makplus_Widget_Banner extends Widget_Base {
     <section class="slider-area slider-bg">
           <div class="container">
               <div class="row justify-content-center">
-                  <div class="col-xl-7 col-lg-10">
+                  <div class="col-xl-10">
                       <div class="slider-content text-center mb-45">
                           <h2><?php echo $settings['title'] ?></h2>
                           <p><?php echo esc_html( $settings['description'] ) ?></p>
@@ -105,8 +87,7 @@ class makplus_Widget_Banner extends Widget_Base {
                   </div>
               </div>
               <div class="row justify-content-center">
-                  <div class="col-xl-8 col-lg-10">
-
+                  <div class="col-xl-7 col-lg-8">
                     <div class="slider-search-form">
                       <form role="search" method="get" class="search-form" action="<?php echo home_url( '/' ); ?>">
                           <span class="screen-reader-text"><?php echo _x( 'Search for:', 'label' ) ?></span>
@@ -114,8 +95,15 @@ class makplus_Widget_Banner extends Widget_Base {
                           <button type="submit" ><?php echo esc_html__( 'Search Now', 'makplus' ) ?></button>
                           <input type="hidden" name="post_type" value="product" />
                       </form>
-                    
-                      </div>
+                      <ul class="list-inline text-center">
+                        <?php if ( !$settings['total_products'] == '' ): ?>
+                          <li class="list-inline-item"><?php echo esc_html( $settings['total_products'] ) .' '. esc_html__( 'Total Product', 'makplus' ) ?></li>
+                        <?php endif ?>
+                        <?php if ( !$settings['total_customers'] == '' ): ?>
+                          <li class="list-inline-item"><?php echo esc_html( $settings['total_customers'] ) .' '. esc_html__( 'Happy Customers', 'makplus' ) ?></li>
+                        <?php endif ?>
+                      </ul>
+                    </div>
                   </div>
               </div>
           </div>
