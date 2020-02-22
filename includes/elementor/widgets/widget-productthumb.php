@@ -59,53 +59,34 @@ class makplus_Widget_Product_Thumb extends Widget_Base {
       $this->end_controls_section();
    }
 
-   protected function render( $instance = [] ) {
+  protected function render( $instance = [] ) {
  
-      // get our input from the widget settings.
-       
-      $settings = $this->get_settings_for_display(); ?>
+    // get our input from the widget settings.
+     
+    $settings = $this->get_settings_for_display();
 
-      <div class="product-thumb-wrap">
-        <div class="row text-center justify-content-center">
-           <?php
-           $blog = new \WP_Query( array( 
-              'post_type' => 'product',
-              'posts_per_page' => $settings['ppp'],
-              'ignore_sticky_posts' => true,
-              'order' => $settings['order'],
-           ));
-           /* Start the Loop */
-           while ( $blog->have_posts() ) : $blog->the_post();
-           global $product; ?>
-            <div class="single-product-item-thumb">
-              <div class="product-thumb-position">
-                <a href="<?php the_permalink() ?>">
-                  <img src="<?php echo esc_url( get_post_meta( get_the_ID(), 'makplus_thumb', 1 ), 'makplus-120x120' ); ?>">
-                </a>
-                <div class="tooltip-wrap">
-                    <div class="tooltip-thumb">
-                         <a href="<?php the_permalink() ?>"><?php the_post_thumbnail('makplus-325x170') ?></a>
-                    </div>
-                    <div class="tooltip-content">
-                        <div class="tooltip-product-info">
-                            <h4><a href="<?php the_permalink() ?>"><?php the_title() ?></a></h4>
-                            <?php echo $product->get_categories(); ?>
-                        </div>
-                        <div class="tooltip-product-price">
-                            <h5><?php echo get_woocommerce_currency_symbol().get_post_meta( get_the_ID(), '_regular_price', true ); ?></h5>
-                            <span><?php echo $product->get_total_sales(); ?> Sales</span>
-                        </div>
-                        <div class="tooltip-rating text-center">
-                            <?php woocommerce_template_loop_rating(); ?>
-                        </div>
-                    </div>
+    $products = new \WP_Query( array( 
+    'post_type' => 'product',
+    'posts_per_page' => $settings['ppp'],
+    ));
+   
+    global $product;?>
+    <div class="product-thumb-wrap">
+      <ul>
+      <?php
+          while ( $products->have_posts() ) : $products->the_post();
+           $categories = get_the_category();  ?>
+          <li>
+              <a href="<?php the_permalink() ?>">
+                <div class="site-preview" data-preview-url="<?php echo get_the_post_thumbnail_url( get_the_ID(),'makplus-500x280') ?>"
+                  data-item-cost="<?php echo get_post_meta( get_the_ID(), '_regular_price', true ); ?>" data-item-category="<?php echo esc_html( $categories[0]->name );?>" data-item-author="makplus" alt="<?php the_title() ?> - <?php echo esc_html( get_post_meta( get_the_ID(), 'makplus_sub_title', 1 ) ) ?>">
                 </div>
-              </div>
-            </div>
+                <img src="<?php echo esc_url( get_post_meta( get_the_ID(), 'makplus_thumb', 1 ), 'makplus-120x120' ); ?>">
+              </a>
+          </li>
           <?php endwhile; wp_reset_postdata(); ?>
-         </div>
-      </div>
-
+      </ul>
+    </div>
       <?php
    }
  

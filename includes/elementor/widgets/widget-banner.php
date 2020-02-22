@@ -104,7 +104,7 @@ class makplus_Widget_Banner extends Widget_Base {
     // get our input from the widget settings.       
     $settings = $this->get_settings_for_display(); ?>
 
-    <section class="slider-area slider-bg" style="background-image: url(<?php echo esc_url($settings['banner_image']['url']) ?>)">
+    <section class="slider-area slider-bg">
           <div class="container">
               <div class="row justify-content-center">
                   <div class="col-xl-7 col-lg-10">
@@ -121,32 +121,12 @@ class makplus_Widget_Banner extends Widget_Base {
                       <form role="search" method="get" class="search-form" action="<?php echo home_url( '/' ); ?>">
                           <span class="screen-reader-text"><?php echo _x( 'Search for:', 'label' ) ?></span>
                           <input type="search" class="search-field" placeholder="Search Your Products..." value="<?php echo esc_attr( get_search_query() ); ?>" name="s" title="<?php echo esc_attr_x( 'Search for:', 'label' ); ?>" />
-                        <?php
-                          $makplus_cat_dropdown_args = array(
-                              'show_option_all' => __( 'Any Category' ),
-                              'taxonomy' => 'product_cat',
-                              'class' => 'selected',
-                            );
-                          wp_dropdown_categories( $makplus_cat_dropdown_args );
-                        ?>
-                        <button type="submit" ><?php echo esc_html__( 'Search Now', 'makplus' ) ?></button>
-                        <input type="hidden" name="post_type" value="product" />
+                          <button type="submit" ><?php echo esc_html__( 'Search Now', 'makplus' ) ?></button>
+                          <input type="hidden" name="post_type" value="product" />
                       </form>
-                      
+                    
                       </div>
                   </div>
-              </div>
-
-              <div class="row justify-content-center">
-
-                <div class="col-xl-10">
-                  <div class="slider-dashboard position-relative">
-                    <?php foreach (  $settings['slider_list'] as $index => $slider ): ?>
-                      <div data-card="<?php echo $index ?>" class="single-dashboard-card"><img src="<?php echo $slider['image']['url'] ?>" alt="img"></div>
-                    <?php endforeach; ?>
-                  </div>
-
-                </div>
               </div>
           </div>
       </section>
