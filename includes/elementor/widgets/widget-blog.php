@@ -74,11 +74,7 @@ class makplus_Widget_Blog extends Widget_Base {
                     </div>
                     <div class="blog-content"> 
                         <h4><a href="<?php the_permalink() ?>"><?php the_title() ?></a></h4>
-                        <div class="blog-meta">
-                          <ul>
-                              <li><i class="far fa-calendar-alt"></i> <?php echo get_the_date() ?></li>
-                          </ul>
-                        </div>
+        
                         <p><?php echo wp_trim_words( get_the_content(), 16, '.' ); ?></p>
                         <div class="row">
                           <div class="col-md-6">
