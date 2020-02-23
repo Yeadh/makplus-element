@@ -112,7 +112,7 @@ class makplus_Widget_Testimonials extends Widget_Base {
       $settings = $this->get_settings_for_display(); ?>
 
       <!-- testimonial start -->
-      <div class="testimonial-area pt-150 pb-150 wow fadeInUp" data-wow-delay=".2s">
+      <div class="testimonial-area">
 
         <div class="row">
             <div class="col-xl-10 offset-xl-1">
