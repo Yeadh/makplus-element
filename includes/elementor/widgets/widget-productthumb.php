@@ -78,10 +78,7 @@ class makplus_Widget_Product_Thumb extends Widget_Base {
            $categories = get_the_category();  ?>
           <li>
               <a href="<?php the_permalink() ?>">
-                <div class="site-preview" data-preview-url="<?php echo get_the_post_thumbnail_url( get_the_ID(),'makplus-500x280') ?>"
-                  data-item-cost="<?php echo get_post_meta( get_the_ID(), '_regular_price', true ); ?>" data-item-category="<?php echo esc_html( $categories[0]->name );?>" data-item-author="makplus" alt="<?php the_title() ?> - <?php echo esc_html( get_post_meta( get_the_ID(), 'makplus_sub_title', 1 ) ) ?>">
-                </div>
-                <img src="<?php echo esc_url( get_post_meta( get_the_ID(), 'makplus_thumb', 1 ), 'makplus-120x120' ); ?>">
+                <img src="<?php echo esc_url( get_post_meta( get_the_ID(), 'makplus_thumb', 1 ), 'makplus-120x120' ); ?>" alt="<?php the_title() ?> - <?php echo esc_html( get_post_meta( get_the_ID(), 'makplus_sub_title', 1 ) ) ?>">
               </a>
           </li>
           <?php endwhile; wp_reset_postdata(); ?>
