@@ -75,39 +75,40 @@ class makplus_Widget_Banner extends Widget_Base {
  
     // get our input from the widget settings.       
     $settings = $this->get_settings_for_display(); ?>
-
-    <section class="slider-area slider-bg">
+     <!-- slider-area -->
+      <section class="slider-area slider-bg">
           <div class="container">
-              <div class="row justify-content-center">
-                  <div class="col-xl-10">
-                      <div class="slider-content text-center mb-45">
-                          <h2><?php echo $settings['title'] ?></h2>
-                          <p><?php echo esc_html( $settings['description'] ) ?></p>
+              <div class="slider-wrap">
+                  <div class="row align-items-center">
+                      <div class="col-lg-6">
+                          <div class="slider-content">
+                              <h2 class="wow fadeInDown" data-wow-delay="0.2s"><?php echo $settings['title'] ?></h2>
+                              <p class="wow fadeInUp" data-wow-delay="0.2s"><?php echo esc_html( $settings['description'] ) ?></p>
+                              <a href="#" class="btn wow fadeInUp" data-wow-delay="0.4s">Browse Projects</a>
+                          </div>
+                      </div>
+                      <div class="col-lg-6 d-none d-lg-block">
+                          <div class="slider-img position-relative text-right">
+                              <img src="<?php echo get_template_directory_uri() ?>/images/slider_img.png" class="slider-main-img" alt="">
+                              <img src="<?php echo get_template_directory_uri() ?>/images/slider_icon01.png" alt="" class="slider-animation-icon wow rollIn" data-wow-delay="0.8s">
+                              <img src="<?php echo get_template_directory_uri() ?>/images/slider_icon02.png" alt="" class="slider-animation-icon wow zoomIn" data-wow-delay="0.4s">
+                              <img src="<?php echo get_template_directory_uri() ?>/images/slider_icon03.png" alt="" class="slider-animation-icon wow fadeInUp" data-wow-delay="0.8s">
+                              <img src="<?php echo get_template_directory_uri() ?>/images/slider_icon04.png" alt="" class="slider-animation-icon wow fadeInUp" data-wow-delay="0.8s">
+                              <img src="<?php echo get_template_directory_uri() ?>/images/slider_icon05.png" alt="" class="slider-animation-icon wow fadeInRight" data-wow-delay="0.8s">
+                              <img src="<?php echo get_template_directory_uri() ?>/images/slider_icon06.png" alt="" class="slider-animation-icon wow fadeInDown" data-wow-delay="0.8s">
+                              <img src="<?php echo get_template_directory_uri() ?>/images/slider_icon07.png" alt="" class="slider-animation-icon wow fadeInRight" data-wow-delay="0.8s">
+                              <img src="<?php echo get_template_directory_uri() ?>/images/slider_icon08.png" alt="" class="slider-animation-icon wow fadeInRight" data-wow-delay="0.8s">
+                              <img src="<?php echo get_template_directory_uri() ?>/images/slider_icon09.png" alt="" class="slider-animation-icon wow rollIn" data-wow-delay="0.8s">
+                              <img src="<?php echo get_template_directory_uri() ?>/images/slider_icon10.png" alt="" class="slider-animation-icon wow fadeInDown" data-wow-delay="0.8s">
+                          </div>
                       </div>
                   </div>
               </div>
-              <div class="row justify-content-center">
-                  <div class="col-xl-7 col-lg-8">
-                    <div class="slider-search-form">
-                      <form role="search" method="get" class="search-form" action="<?php echo home_url( '/' ); ?>">
-                          <span class="screen-reader-text"><?php echo _x( 'Search for:', 'label' ) ?></span>
-                          <input type="search" class="search-field" placeholder="Search Your Products..." value="<?php echo esc_attr( get_search_query() ); ?>" name="s" title="<?php echo esc_attr_x( 'Search for:', 'label' ); ?>" />
-                          <button type="submit" ><?php echo esc_html__( 'Search Now', 'makplus' ) ?></button>
-                          <input type="hidden" name="post_type" value="product" />
-                      </form>
-                      <ul class="list-inline text-center">
-                        <?php if ( !$settings['total_products'] == '' ): ?>
-                          <li class="list-inline-item"><?php echo esc_html( $settings['total_products'] ) .' '. esc_html__( 'Total Product', 'makplus' ) ?></li>
-                        <?php endif ?>
-                        <?php if ( !$settings['total_customers'] == '' ): ?>
-                          <li class="list-inline-item"><?php echo esc_html( $settings['total_customers'] ) .' '. esc_html__( 'Happy Customers', 'makplus' ) ?></li>
-                        <?php endif ?>
-                      </ul>
-                    </div>
-                  </div>
-              </div>
           </div>
+          <div class="slider-img-ellipse"><img src="img/slider/slider_shape.png" class="rotateme" alt=""></div>
       </section>
+      <!-- slider-area-end -->
+
       <?php
    }
 }
