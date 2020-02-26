@@ -82,7 +82,7 @@ class makplus_Widget_Product extends Widget_Base {
 
       <div class="row justify-content-center">
         <div class="text-center">
-          <div class="product-menu <?php if ( $settings['style'] == 'style2' or $settings['style'] == 'style3' ){ echo 's-product-menu'; } ?> mb-60">
+          <div class="product-menu mb-60">
             <button class="active" data-filter="*">All Items</button>
             <?php  $product_menu_terms = get_terms( array(
                'taxonomy' => 'product_cat',
