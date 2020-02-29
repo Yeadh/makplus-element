@@ -11,7 +11,7 @@ class makplus_Widget_Banner extends Widget_Base {
    }
  
    public function get_title() {
-      return esc_html__( 'Banner 1', 'makplus' );
+      return esc_html__( 'Banner', 'makplus' );
    }
  
    public function get_icon() { 

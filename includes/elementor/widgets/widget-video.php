@@ -111,7 +111,7 @@ class MakPlus_Widget_Video extends Widget_Base {
                   <div class="row align-items-center">
                       <div class="col-lg-6 order-0 order-lg-2">
                           <div class="video-thumb">
-                              <img src="<?php echo esc_url($settings['video-background']); ?>" alt="">
+                              <img src="<?php echo esc_url($settings['video-background']['url']); ?>" alt="<?php echo esc_attr($settings['title']); ?>">
                               <a href="<?php echo esc_url($settings['video-url']); ?>" class="pulse popup-video"><i class="fas fa-play"></i></a>
                           </div>
                       </div>
@@ -121,7 +121,7 @@ class MakPlus_Widget_Video extends Widget_Base {
                               <h2><?php echo esc_html($settings['title']); ?></h2>
                           </div>
                           <div class="video-content">
-                              <p><?php echo esc_html($settings['text']); ?></p>
+                              <p><?php echo esc_html($settings['desc']); ?></p>
                               <div class="video-quote">
                                   <?php echo esc_html($settings['video-quote']); ?>
                               </div>
