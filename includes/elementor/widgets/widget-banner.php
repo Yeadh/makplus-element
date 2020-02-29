@@ -38,7 +38,7 @@ class makplus_Widget_Banner extends Widget_Base {
          [
             'label' => __( 'Title', 'makplus' ),
             'type' => \Elementor\Controls_Manager::TEXTAREA,
-            'default' => __('Digital Product Marketplace Create Your Business','makplus')
+            'default' => __('Create & Manage Team Matches','makplus')
          ]
       );
 
@@ -47,25 +47,27 @@ class makplus_Widget_Banner extends Widget_Base {
          [
             'label' => __( 'Description', 'makplus' ),
             'type' => \Elementor\Controls_Manager::TEXTAREA,
-            'default' => __('Most powerful, & customizable template for Easy Digital Downloads Products','makplus')
+            'default' => __('Find technology people for digital projects in public sector and Find individual specialist develop researcher.','makplus')
+         ]
+      );
+      $this->add_control(
+         'btn-text',
+         [
+            'label' => __( 'Description', 'makplus' ),
+            'type' => \Elementor\Controls_Manager::TEXTAREA,
+            'default' => __('Find technology people for digital projects in public sector and Find individual specialist develop researcher.','makplus')
+         ]
+      );
+      $this->add_control(
+         'btn-url',
+         [
+            'label' => __( 'Description', 'makplus' ),
+            'type' => \Elementor\Controls_Manager::TEXTAREA,
+            'default' => __('Find technology people for digital projects in public sector and Find individual specialist develop researcher.','makplus')
          ]
       );
 
-      $this->add_control(
-         'total_products',
-         [
-            'label' => __( 'Total products', 'makplus' ),
-            'type' => \Elementor\Controls_Manager::TEXT
-         ]
-      );
 
-      $this->add_control(
-         'total_customers',
-         [
-            'label' => __( 'Total customers', 'makplus' ),
-            'type' => \Elementor\Controls_Manager::TEXT
-         ]
-      );
 
       $this->end_controls_section();
 
@@ -105,7 +107,7 @@ class makplus_Widget_Banner extends Widget_Base {
                   </div>
               </div>
           </div>
-          <div class="slider-img-ellipse"><img src="img/slider/slider_shape.png" class="rotateme" alt=""></div>
+          <div class="slider-img-ellipse"><img src="<?php echo get_template_directory_uri() ?>/images/slider_shape.png" class="rotateme" alt=""></div>
       </section>
       <!-- slider-area-end -->
 
