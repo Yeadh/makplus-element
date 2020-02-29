@@ -50,6 +50,7 @@ class makplus_Widget_Banner extends Widget_Base {
             'default' => __('Find technology people for digital projects in public sector and Find individual specialist develop researcher.','makplus')
          ]
       );
+      
       $this->add_control(
          'btn-text',
          [
@@ -58,6 +59,7 @@ class makplus_Widget_Banner extends Widget_Base {
             'default' => __('Find technology people for digital projects in public sector and Find individual specialist develop researcher.','makplus')
          ]
       );
+      
       $this->add_control(
          'btn-url',
          [
