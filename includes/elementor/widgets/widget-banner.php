@@ -50,22 +50,22 @@ class makplus_Widget_Banner extends Widget_Base {
             'default' => __('Find technology people for digital projects in public sector and Find individual specialist develop researcher.','makplus')
          ]
       );
-      
+
       $this->add_control(
          'btn-text',
          [
-            'label' => __( 'Description', 'makplus' ),
-            'type' => \Elementor\Controls_Manager::TEXTAREA,
-            'default' => __('Find technology people for digital projects in public sector and Find individual specialist develop researcher.','makplus')
+            'label' => __( 'Button', 'makplus' ),
+            'type' => \Elementor\Controls_Manager::TEXT,
+            'default' => __('Browse Projects','makplus')
          ]
       );
-      
+
       $this->add_control(
          'btn-url',
          [
-            'label' => __( 'Description', 'makplus' ),
-            'type' => \Elementor\Controls_Manager::TEXTAREA,
-            'default' => __('Find technology people for digital projects in public sector and Find individual specialist develop researcher.','makplus')
+            'label' => __( 'URL', 'makplus' ),
+            'type' => \Elementor\Controls_Manager::TEXT,
+            'default' => '#'
          ]
       );
 
@@ -86,9 +86,9 @@ class makplus_Widget_Banner extends Widget_Base {
                   <div class="row align-items-center">
                       <div class="col-lg-6">
                           <div class="slider-content">
-                              <h2 class="wow fadeInDown" data-wow-delay="0.2s"><?php echo $settings['title'] ?></h2>
+                              <h2 class="wow fadeInDown" data-wow-delay="0.2s"><?php echo  esc_html($settings['title']) ?></h2>
                               <p class="wow fadeInUp" data-wow-delay="0.2s"><?php echo esc_html( $settings['description'] ) ?></p>
-                              <a href="#" class="btn wow fadeInUp" data-wow-delay="0.4s">Browse Projects</a>
+                              <a href="<?php echo esc_url($settings['btn-url'])?>" class="btn wow fadeInUp" data-wow-delay="0.4s"><?php echo esc_html($settings['btn-text']) ?></a>
                           </div>
                       </div>
                       <div class="col-lg-6 d-none d-lg-block">
