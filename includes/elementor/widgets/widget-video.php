@@ -105,7 +105,7 @@ class MakPlus_Widget_Video extends Widget_Base {
       ?>
 
       <!-- video-area -->
-      <section class="video-area pt-120">
+      <section class="video-area pt-75 pb-110">
           <div class="container">
               <div class="video-wrap">
                   <div class="row align-items-center">
