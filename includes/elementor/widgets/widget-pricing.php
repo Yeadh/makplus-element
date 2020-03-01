@@ -42,22 +42,6 @@ class makplus_Widget_Pricing extends Widget_Base {
       );
 
       $this->add_control(
-         'desc',
-         [
-            'label' => __( 'Description', 'makplus' ),
-            'type' => \Elementor\Controls_Manager::TEXTAREA
-         ]
-      );
-
-      $this->add_control(
-         'icon',
-         [
-            'label' => __( 'icon', 'makplus' ),
-            'type' => \Elementor\Controls_Manager::MEDIA
-         ]
-      );
-
-      $this->add_control(
          'price',
          [
             'label' => __( 'Price', 'makplus' ),
@@ -93,6 +77,18 @@ class makplus_Widget_Pricing extends Widget_Base {
          ]
       );
 
+      $feature->add_control(
+         'cross',
+         [
+            'label' => __( 'Cross', 'makplus' ),
+            'type' => \Elementor\Controls_Manager::SWITCHER,
+            'label_on' => __( 'On', 'makplus' ),
+            'label_off' => __( 'Off', 'makplus' ),
+            'return_value' => 'item-cross',
+            'default' => 'off',
+         ]
+      );
+
       $this->add_control(
          'feature_list',
          [
@@ -125,7 +121,7 @@ class makplus_Widget_Pricing extends Widget_Base {
          [
             'label' => __( 'button text', 'makplus' ),
             'type' => \Elementor\Controls_Manager::TEXT,
-            'default' => 'Buy Now',
+            'default' => 'Sng Up Now',
          ]
       );
 
@@ -138,17 +134,6 @@ class makplus_Widget_Pricing extends Widget_Base {
          ]
       );
 
-      $this->add_control(
-         'recommended',
-         [
-            'label' => __( 'Recommended', 'makplus' ),
-            'type' => \Elementor\Controls_Manager::SWITCHER,
-            'label_on' => __( 'On', 'makplus' ),
-            'label_off' => __( 'Off', 'makplus' ),
-            'return_value' => 'on',
-            'default' => 'off',
-         ]
-      );
 
       $this->end_controls_section();
    }
@@ -159,30 +144,25 @@ class makplus_Widget_Pricing extends Widget_Base {
        
       $settings = $this->get_settings_for_display(); ?>
 
-
-      <div class="single-pricing text-center <?php if ( 'on' == $settings['recommended'] ){ echo"active"; }?>">
-         <div class="pricing-head mb-30">
-             <div class="pricing-icon mb-15">
-                 <img src="<?php echo esc_url( $settings['icon']['url'] ); ?>" alt="<?php echo esc_attr( $settings['title'] ); ?>">
-             </div>
-             <h5><?php echo esc_html( $settings['title'] ); ?></h5>
-             <span><?php echo esc_html( $settings['package'] ); ?></span>
-             <p>Subscribe Best Plans</p>
-             <div class="price-count">
-                 <h4><?php echo $settings['price']; ?></h4>
-             </div>
-         </div>
-         <div class="pricing-list mb-30">
-             <ul>
-               <?php foreach( $settings['feature_list'] as $index => $feature ) { ?>
-                  <li><?php echo $feature['feature'] ?></li>
-               <?php } ?>
-             </ul>
-         </div>
-         <div class="pricing-btn">
-             <a href="<?php echo esc_attr( $settings['btn_url'] ) ?>" class="btn"><?php echo esc_html( $settings['btn_text'] ) ?><i class="fas fa-shopping-cart"></i></a>
-         </div>
-      </div>
+      <div class="pricing-box mb-30">
+           <div class="pricing-head mb-40">
+               <h5><?php echo esc_html( $settings['title'] ); ?></h5>
+               <h2><?php echo $settings['price']; ?><span>/month</span></h2>
+           </div>
+           <div class="pricing-type mb-40">
+               <h6><?php echo esc_html( $settings['package'] ); ?></h6>
+           </div>
+           <div class="pricing-list mb-40">
+               <ul>
+                  <?php foreach( $settings['feature_list'] as $index => $feature ) { ?>
+                  <li class="<?php echo esc_attr($feature['cross']) ?>"><i class="fas <?php if ($feature['cross'] == 'item-cross'){echo 'fa-times';}else{echo 'fa-check';} ?>"></i><?php echo $feature['feature'] ?></li>
+                  <?php } ?>
+               </ul>
+           </div>
+           <div class="pricing-btn">
+               <a href="<?php echo esc_attr( $settings['btn_url'] ) ?>" class="btn"><?php echo esc_html( $settings['btn_text'] ) ?></a>
+           </div>
+       </div>
 
    <?php }
  
