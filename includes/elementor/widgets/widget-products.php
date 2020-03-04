@@ -142,20 +142,22 @@ class Makplus_Widget_Product extends Widget_Base {
                               <a href="<?php the_permalink() ?>"><?php the_post_thumbnail( 'makplus-403,256' ) ?></a>
                           </div>
                           <div class="product-item-content">
-                              <div class="product-cat mb-10">
-                                  <ul>
-                                      <li><a href="#"><?php echo esc_html( $portfolio_term->name ); ?></a></li>
-                                      <li><?php echo get_woocommerce_currency_symbol().get_post_meta( get_the_ID(), '_regular_price', true ); ?></li>
-                                  </ul>
-                              </div>
                               <h4><a href="<?php the_permalink() ?>"><?php the_title() ?></a></h4>
                               <p><?php echo esc_html( get_post_meta( get_the_ID(), 'makplus_sub_title', 1 ) ) ?></p>
+                              <div class="product-cat">
+                                  <ul>
+                                    <li><a href="#"><?php echo esc_html( $portfolio_term->name ); ?></a></li>
+                                    <li><?php echo get_woocommerce_currency_symbol().get_post_meta( get_the_ID(), '_regular_price', true ); ?></li>
+                                  </ul>
+                              </div>
                           </div>
                           <div class="product-meta">
                               <ul>
                                   <li><?php echo get_avatar( get_the_author_meta( 'ID' ), '29'); ?><?php echo esc_html__( 'By ','makplus' ) ?> <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php the_author(); ?></a></li>
                                   <li>
-                                     <?php woocommerce_template_loop_rating() ?>
+                                      <div class="product-addCart">
+                                          <a href="#"><i class="fas fa-shopping-basket"></i></a>
+                                      </div>
                                   </li>
                               </ul>
                           </div>
