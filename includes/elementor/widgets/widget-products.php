@@ -156,7 +156,7 @@ class Makplus_Widget_Product extends Widget_Base {
                                   <li><?php echo get_avatar( get_the_author_meta( 'ID' ), '29'); ?><?php echo esc_html__( 'By ','makplus' ) ?> <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php the_author(); ?></a></li>
                                   <li>
                                       <div class="product-addCart">
-                                          <a href="#"><i class="fas fa-shopping-basket"></i></a>
+                                          <a href="<?php echo do_shortcode('[add_to_cart_url id="'.get_the_ID().'"]'); ?>"><i class="fas fa-shopping-basket"></i></a>
                                       </div>
                                   </li>
                               </ul>
