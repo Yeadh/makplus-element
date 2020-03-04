@@ -111,8 +111,7 @@ class makplus_Widget_Blog extends Widget_Base {
                               <div class="blog-meta">
                                   <ul>
                                       <li><i class="far fa-clock"></i><?php the_date() ?> <?php echo esc_html__( 'in','digimarket' ) ?> <?php echo get_the_category()[0]->name; ?></li>
-                                      <li><i class="fas fa-comment"></i>03</li>
-                                      <li><i class="fas fa-heart"></i>26</li>
+                                      <li><i class="fas fa-comment"></i><?php comments_number( '0', '1', '%' ); ?></li>
                                   </ul>
                               </div>
                               <h3><a href="<?php the_permalink() ?>"><?php the_title() ?></a></h3>
