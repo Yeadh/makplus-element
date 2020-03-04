@@ -35,6 +35,15 @@ class makplus_Widget_Title extends Widget_Base {
 
 
       $this->add_control(
+         'mini-title',
+         [
+            'label' => __( 'Mini title', 'makplus' ),
+            'type' => \Elementor\Controls_Manager::TEXT,
+            'default' => __('Awesome','makplus')
+         ]
+      );
+
+      $this->add_control(
          'title',
          [
             'label' => __( 'Title', 'makplus' ),
@@ -104,8 +113,9 @@ class makplus_Widget_Title extends Widget_Base {
       
       ?>
       <div class="section-title <?php echo esc_attr($settings['align']).' '.esc_attr($settings['white']); ?>">
-        <h2 <?php echo $this->get_render_attribute_string( 'title' ); ?>><?php echo esc_html($settings['title']); ?></h2>
-        <p <?php echo $this->get_render_attribute_string( 'sub-title' ); ?>><?php echo esc_html($settings['sub-title']); ?></p>
+         <span><?php echo esc_html($settings['mini-title']); ?></span>
+        <h2><?php echo esc_html($settings['title']); ?></h2>
+        <p><?php echo esc_html($settings['sub-title']); ?></p>
       </div>
       <?php
    }
