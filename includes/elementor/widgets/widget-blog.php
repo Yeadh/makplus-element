@@ -121,7 +121,7 @@ class makplus_Widget_Blog extends Widget_Base {
                                       <?php echo get_avatar( get_the_author_meta( 'ID' ), '36'); ?>
                                   </div>
                                   <div class="blog-avatar-info">
-                                      <a href="#">- <?php the_author() ?></a>
+                                      <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>">- <?php the_author() ?></a>
                                   </div>
                               </div>
                           </div>
