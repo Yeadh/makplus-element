@@ -59,6 +59,7 @@ class makplus_ElementorCustomElement {
          include_once(plugin_dir_path( __FILE__ ).'/widgets/widget-searchbox.php');
          include_once(plugin_dir_path( __FILE__ ).'/widgets/widget-testimonials.php');
          include_once(plugin_dir_path( __FILE__ ).'/widgets/widget-blog.php');
+         include_once(plugin_dir_path( __FILE__ ).'/widgets/widget-cta.php');
          include_once(plugin_dir_path( __FILE__ ).'/widgets/widget-pricing.php');
          include_once(plugin_dir_path( __FILE__ ).'/widgets/widget-button.php');
          include_once(plugin_dir_path( __FILE__ ).'/widgets/widget-video.php');
