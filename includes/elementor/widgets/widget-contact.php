@@ -106,7 +106,7 @@ class makplus_Widget_Contact extends Widget_Base {
       ?>
 
       <div class="contact-wrap">
-         <div class="section-title s-section-title white-title contact-title mb-25">
+         <div class="section-title s-section-title contact-title mb-25">
             <span><?php echo $settings['sub-title'] ?></span>
             <h2><?php echo esc_html($settings['title']); ?></h2>
          </div>
