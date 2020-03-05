@@ -7,15 +7,15 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 class Makplus_Widget_CTA extends Widget_Base {
  
    public function get_name() {
-      return 'cta';
+      return 'calltoaction';
    }
  
-   public function get_CTA() {
+   public function get_title() {
       return esc_html__( 'Call To Action', 'makplus' );
    }
  
    public function get_icon() { 
-        return 'eicon-site-CTA';
+        return 'eicon-call-to-action';
    }
  
    public function get_categories() {
@@ -27,9 +27,8 @@ class Makplus_Widget_CTA extends Widget_Base {
       $this->start_controls_section(
          'cta_section',
          [
-            'label' => esc_html__( 'Call To Action', 'makplus' ),
-            'type' => Controls_Manager::SECTION,
-            'default' => __('Featured Tranding of the week','makplus')
+            'label' => __( 'Call To Action', 'makplus' ),
+            'type' => Controls_Manager::SECTION
          ]
       );
 
@@ -52,14 +51,21 @@ class Makplus_Widget_CTA extends Widget_Base {
          ]
       );
 
-
       $button = new \Elementor\Repeater();
+      
+      $button->add_control(
+         'icon',
+         [
+            'label' => __( 'Icon', 'makplus' ),
+            'type' => \Elementor\Controls_Manager::ICON
+         ]
+      );
 
       $button->add_control(
          'title',
          [
-            'label' => __( 'Choose Photo', 'makplus' ),
-            'type' => \Elementor\Controls_Manager::MEDIA,
+            'label' => __( 'Title', 'makplus' ),
+            'type' => \Elementor\Controls_Manager::TEXT,
             'default' => __('App Store','makplus')
          ]
       );
@@ -67,18 +73,19 @@ class Makplus_Widget_CTA extends Widget_Base {
       $button->add_control(
          'url',
          [
-            'label' => __( 'Choose Photo', 'makplus' ),
-            'type' => \Elementor\Controls_Manager::MEDIA,
+            'label' => __( 'URL', 'makplus' ),
+            'type' => \Elementor\Controls_Manager::TEXT,
             'default' => '#',
          ]
       );
 
       $this->add_control(
-         'btn_list',
+         'button_list',
          [
             'label' => __( 'Buttons', 'makplus' ),
             'type' => \Elementor\Controls_Manager::REPEATER,
             'fields' => $button->get_controls()
+
          ]
       );
 
@@ -102,8 +109,8 @@ class Makplus_Widget_CTA extends Widget_Base {
                           <p><?php echo esc_html($settings['desc']); ?></p>
                       </div>
                       <div class="download-btn text-center">
-                        <?php foreach( $settings['btn_list'] as $index => $btn ) { ?>
-                          <a href="<?php echo esc_url($btn['url']); ?>" class="btn"><i class="fab fa-apple"></i><?php echo esc_html($btn['title']); ?></a>
+                        <?php foreach( $settings['button_list'] as $index => $btn ) { ?>
+                          <a href="<?php echo esc_url($btn['url']); ?>" class="btn"><i class="fab fa <?php echo esc_attr($btn['icon']); ?>"></i><?php echo esc_html($btn['title']); ?></a>
                         <?php } ?>
                       </div>
                   </div>
