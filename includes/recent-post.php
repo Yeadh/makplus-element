@@ -70,7 +70,6 @@ if( !class_exists('makplus_Recent_Post') ){
                         <div class="rc-post-content">
                             <h5><a href="<?php the_permalink() ?>"><?php the_title() ?></a></h5>
                             <ul class="rc-post-meta">
-                                <li><a href="#">Creative</a></li>
                                 <li><?php the_date() ?></li>
                             </ul>
                         </div>
