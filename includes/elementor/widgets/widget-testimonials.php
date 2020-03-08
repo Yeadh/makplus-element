@@ -41,30 +41,6 @@ class Makplus_Widget_Testimonials extends Widget_Base {
          ]
       );
 
-      $partner = new \Elementor\Repeater();
-
-      $partner->add_control(
-         'image',
-         [
-            'label' => __( 'Choose Photo', 'makplus' ),
-            'type' => \Elementor\Controls_Manager::MEDIA,
-            'default' => [
-               'url' => \Elementor\Utils::get_placeholder_image_src()
-            ],
-         ]
-      );
-
-      $this->add_control(
-         'partner_list',
-         [
-            'label' => __( 'Partner List', 'makplus' ),
-            'type' => \Elementor\Controls_Manager::REPEATER,
-            'fields' => $partner->get_controls()
-
-         ]
-      );
-
-
       $repeater = new \Elementor\Repeater();
 
       $repeater->add_control(
