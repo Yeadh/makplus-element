@@ -125,7 +125,7 @@ class Makplus_Widget_Testimonials extends Widget_Base {
       <div class="area-wrapper black-bg position-relative">
 
           <!-- testimonial-area -->
-          <section class="testimonial-area pt-65 pb-140">
+          <section class="testimonial-area pt-140 pb-140">
               <div class="container">
                   <div class="testi-wrap">
                       <div class="row">
