@@ -129,8 +129,8 @@ class Makplus_Widget_Testimonials extends Widget_Base {
               <div class="container">
                   <div class="testi-wrap">
                       <div class="row">
-                          <div class="col-lg-5">
-                              <div class="section-title white-title mb-50">
+                          <div class="col-lg-12">
+                              <div class="section-title text-center white-title mb-50">
                                   <h2><?php echo esc_html($settings['title']); ?></h2>
                               </div>
                           </div>
