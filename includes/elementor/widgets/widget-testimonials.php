@@ -148,22 +148,6 @@ class Makplus_Widget_Testimonials extends Widget_Base {
 
       <div class="area-wrapper black-bg position-relative">
 
-          <!-- brand-area -->
-          <div class="brand-area pt-120">
-              <div class="container">
-                  <div class="brand-wrap">
-                      <div class="row no-gutters justify-content-center">
-                          <?php foreach (  $settings['partner_list'] as $partner_single ): ?>
-                          <div class="brand-item">
-                              <img src="<?php echo esc_url( $partner_single['image']['url'] ); ?>" alt="">
-                          </div>
-                          <?php endforeach; ?>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <!-- brand-area-end -->
-
           <!-- testimonial-area -->
           <section class="testimonial-area pt-65 pb-140">
               <div class="container">
