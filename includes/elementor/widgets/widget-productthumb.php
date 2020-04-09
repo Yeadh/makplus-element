@@ -72,7 +72,7 @@ class makplus_Widget_Product_Thumb extends Widget_Base {
    
     global $product;?>
     <div class="product-thumb-wrap">
-      <ul>
+      <ul class="list-unstyled">
       <?php
           while ( $products->have_posts() ) : $products->the_post();
            $categories = get_the_category();  ?>
