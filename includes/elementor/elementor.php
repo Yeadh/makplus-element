@@ -48,6 +48,9 @@ class makplus_ElementorCustomElement {
     if(defined('ELEMENTOR_PATH') && class_exists('Elementor\Widget_Base')){
          include_once(plugin_dir_path( __FILE__ ).'/widgets/widget-banner.php');
          include_once(plugin_dir_path( __FILE__ ).'/widgets/widget-banner2.php');
+         include_once(plugin_dir_path( __FILE__ ).'/widgets/widget-banner3.php');
+         include_once(plugin_dir_path( __FILE__ ).'/widgets/widget-banner4.php');
+         include_once(plugin_dir_path( __FILE__ ).'/widgets/widget-free.php');
          include_once(plugin_dir_path( __FILE__ ).'/widgets/widget-title.php');
          include_once(plugin_dir_path( __FILE__ ).'/widgets/widget-accordion.php');
          include_once(plugin_dir_path( __FILE__ ).'/widgets/widget-contact.php');
