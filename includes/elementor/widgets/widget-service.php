@@ -30,8 +30,19 @@ class makplus_Widget_Service extends Widget_Base {
             'type' => Controls_Manager::SECTION,
          ]
       );
-
-      $this->add_control(
+       $this->add_control(
+           'style',
+           [
+               'label' => __( 'Style', 'makplus' ),
+               'type' => \Elementor\Controls_Manager::SELECT,
+               'default' => 'style1',
+               'options' => [
+                   'style1' => __( 'Style 1', 'makplus' ),
+                   'style2' => __( 'Style 2', 'makplus' ),
+               ],
+           ]
+       );
+       $this->add_control(
          'image',
          [
             'label' => __( 'Choose icon', 'makplus' ),
@@ -42,16 +53,16 @@ class makplus_Widget_Service extends Widget_Base {
          ]
       );
 
-      $this->add_control(
+       $this->add_control(
          'title',
          [
             'label' => __( 'Title', 'makplus' ),
             'type' => \Elementor\Controls_Manager::TEXT,
-            'default' => __( 'Secure Transaction Custo Traffic generation', 'makplus' ),
+            'default' => __( 'Genuine Products', 'makplus' ),
          ]
       );
 
-      $this->add_control(
+       $this->add_control(
          'desc',
          [
             'label' => __( 'Description', 'makplus' ),
@@ -67,7 +78,7 @@ class makplus_Widget_Service extends Widget_Base {
       // get our input from the widget settings.
        
       $settings = $this->get_settings_for_display(); ?>
-
+       <?php if ( $settings['style'] == 'style1' ){ ?>
       <div class="services-box">
           <div class="services-box-head">
               <img src="<?php echo esc_html($settings['image']['url']); ?>" alt="<?php echo esc_attr($settings['title']); ?>">
@@ -78,7 +89,15 @@ class makplus_Widget_Service extends Widget_Base {
           </div>
           <div class="services-overlay-icon"><img src="<?php echo esc_html($settings['image']['url']); ?>" alt="<?php echo esc_attr($settings['title']); ?>"></div>
       </div>
-
+       <?php } elseif( $settings['style'] == 'style2' ){ ?>
+           <div class="single__box single__box__layout__3">
+               <div class="box__icon "><img src="<?php echo esc_html($settings['image']['url']); ?>" alt="<?php echo esc_attr($settings['title']); ?>"></div>
+               <h3 class="box__title"><?php echo esc_html($settings['title']); ?></h3>
+               <div class="box__description">
+                   <p><?php echo esc_html($settings['desc']); ?></p>
+               </div>
+           </div>
+       <?php } ?>
       <?php
    }
  
