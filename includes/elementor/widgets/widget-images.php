@@ -3,14 +3,14 @@ namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 // Product
-class Makplus_Widget_Product extends Widget_Base {
+class Makplus_Widget_Images extends Widget_Base {
  
    public function get_name() {
-      return 'product';
+      return 'images';
    }
  
    public function get_title() {
-      return esc_html__( 'Products', 'makplus' );
+      return esc_html__( 'Images with Filter', 'makplus' );
    }
  
    public function get_icon() { 
@@ -25,7 +25,7 @@ class Makplus_Widget_Product extends Widget_Base {
       $this->start_controls_section(
          'product_section',
          [
-            'label' => esc_html__( 'Products', 'makplus' ),
+            'label' => esc_html__( 'Images with Filter', 'makplus' ),
             'type' => Controls_Manager::SECTION,
          ]
       );
@@ -138,31 +138,18 @@ class Makplus_Widget_Product extends Widget_Base {
 				
                 global $product;?>
 				
-                  <div class="col-lg-4 col-md-6 grid-item <?php foreach ($product_terms as $portfolio_term) { echo esc_attr( $portfolio_term->slug ); } ?>">
+                  <div class="col-lg-4 col-md-6 grid-item latest-games-thumb <?php foreach ($product_terms as $portfolio_term) { echo esc_attr( $portfolio_term->slug ); } ?>">
                       <div class="product-item mb-40">
-                          <div class="product-thumb">
-                              <a href="<?php the_permalink() ?>"><?php the_post_thumbnail( 'makplus-503x320' ) ?></a>
-                          </div>
-                          <div class="product-item-content">
-                              <h4><a href="<?php the_permalink() ?>"><?php the_title() ?></a></h4>
-                              <p><?php echo esc_html( get_post_meta( get_the_ID(), 'makplus_sub_title', 1 ) ) ?></p>
-                              <div class="product-cat">
-                                  <ul>
-                                    <li><a href="#"><?php echo esc_html( $portfolio_term->name ); ?></a></li>
-                                    <li><?php echo get_woocommerce_currency_symbol().get_post_meta( get_the_ID(), '_regular_price', true ); ?></li>
-                                  </ul>
-                              </div>
-                          </div>
-                          <div class="product-meta">
-                              <ul>
-                                  <li><?php echo get_avatar( get_the_author_meta( 'ID' ), '29'); ?><?php echo esc_html__( 'By ','makplus' ) ?> <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php the_author(); ?></a></li>
-                                  <li>
-                                      <div class="product-addCart">
-                                          <a href="<?php echo do_shortcode('[add_to_cart_url id="'.get_the_ID().'"]'); ?>"><i class="fas fa-shopping-basket"></i></a>
-                                      </div>
-                                  </li>
-                              </ul>
-                          </div>
+					    <a href="<?php the_permalink() ?>"><?php the_post_thumbnail( 'makplus-503x320' ) ?></a>
+						<div class="new_release_hover">
+						   <div class="new_release_hover_preview">
+								   <a href="<?php the_permalink(); ?>" target="_blank" tabindex="0"><?php echo esc_html__( 'View Now', 'makplus' ); ?></a>
+							   
+						   </div>
+						   <div class="new_release_hover_addtocart">
+							   <a href="<?php echo esc_url(home_url( '/' )); ?>/cart/?add-to-cart=<?php echo esc_attr(get_the_ID()); ?>" ><?php echo esc_html( $price ).esc_html__( ' Add To Cart', 'makplus' ) ?></a>
+						   </div>
+					   </div>
                       </div>
                   </div>
                 <?php endwhile; wp_reset_postdata(); ?>
@@ -175,4 +162,4 @@ class Makplus_Widget_Product extends Widget_Base {
    }
  
 }
-Plugin::instance()->widgets_manager->register_widget_type( new Makplus_Widget_Product );
+Plugin::instance()->widgets_manager->register_widget_type( new Makplus_Widget_Images );
