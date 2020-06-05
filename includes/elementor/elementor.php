@@ -53,6 +53,7 @@ class makplus_ElementorCustomElement {
          include_once(plugin_dir_path( __FILE__ ).'/widgets/widget-banner5.php');
          include_once(plugin_dir_path( __FILE__ ).'/widgets/widget-banner6.php');
          include_once(plugin_dir_path( __FILE__ ).'/widgets/widget-banner7.php');
+         include_once(plugin_dir_path( __FILE__ ).'/widgets/widget-banner8.php');
          include_once(plugin_dir_path( __FILE__ ).'/widgets/widget-free.php');
          include_once(plugin_dir_path( __FILE__ ).'/widgets/widget-title.php');
          include_once(plugin_dir_path( __FILE__ ).'/widgets/widget-accordion.php');
@@ -75,6 +76,7 @@ class makplus_ElementorCustomElement {
         include_once(plugin_dir_path( __FILE__ ).'/widgets/widget-newimages.php');
         include_once(plugin_dir_path( __FILE__ ).'/widgets/widget-images.php');
         include_once(plugin_dir_path( __FILE__ ).'/widgets/widget-images-no-filter.php');
+        include_once(plugin_dir_path( __FILE__ ).'/widgets/widget-video-no-filter.php');
 
       }
 	}
